@@ -9,8 +9,8 @@ export default class InputSinopse extends React.Component {
       <label htmlFor="sinopse" data-testid="storyline-input-label">
         Sinopse
         <textarea
-          cols="40"
-          rows="20"
+          cols="20"
+          rows="15"
           id="sinopse"
           name="storyline"
           value={ value }
