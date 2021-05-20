@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import InputTitle from './InputTitle';
 import InputSubtitle from './InputSubtitle';
@@ -26,21 +27,47 @@ class AddMovie extends React.Component {
     });
   }
 
-  render() {
+  resetState() {
     const { onClick } = this.props;
+    onClick(this.state);
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
-      <form data-testid="add-movie-form">
-        <InputTitle value={ title } onChange={ this.handleOnChange } />
-        <InputSubtitle value={ subtitle } onChange={ this.handleOnChange } />
-        <InputImage value={ imagePath } onChange={ this.handleOnChange } />
-        <InputSinopse value={ storyline } onChange={ this.handleOnChange } />
-        <InputRating value={ rating } onChange={ this.handleOnChange } />
-        <InputGenre value={ genre } onChange={ this.handleOnChange } />
-      </form>
+      <div>
+        <form data-testid="add-movie-form">
+          <InputTitle value={ title } onChange={ this.handleOnChange } />
+          <InputSubtitle value={ subtitle } onChange={ this.handleOnChange } />
+          <InputImage value={ imagePath } onChange={ this.handleOnChange } />
+          <InputSinopse value={ storyline } onChange={ this.handleOnChange } />
+          <InputRating value={ Number(rating) } onChange={ this.handleOnChange } />
+          <InputGenre value={ genre } onChange={ this.handleOnChange } />
+        </form>
+        <button
+          type="submit"
+          onClick={ this.resetState }
+          data-testid="send-button"
+        >
+          Adicionar filme
+        </button>
+      </div>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
