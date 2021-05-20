@@ -1,4 +1,3 @@
-// implement AddMovie component here
 import React, { Component } from 'react';
 
 import MovieList from './MovieList';
@@ -15,7 +14,7 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        <MovieList movies={this.props.movies} />
+        <MovieList movies={ this.props.movies } />
         <AddMovie />
       </div>
     );
