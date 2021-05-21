@@ -22,6 +22,7 @@ export default class AddMovie extends React.Component {
     };
 
     this.handleOnChange = this.handleOnChange.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   handleOnChange({ target: { value, name } }) {
