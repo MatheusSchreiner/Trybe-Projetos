@@ -6,10 +6,10 @@ export default class InputSubtitle extends React.Component {
     const { value, onChange } = this.props;
 
     return (
-      <label htmlFor="subtitle" data-testid="subtitle-input-label">
+      <label htmlFor="subtitleId" data-testid="subtitle-input-label">
         Subtítulo
         <input
-          id="subtitle"
+          id="subtitleId"
           type="text"
           name="subtitle"
           value={ value }

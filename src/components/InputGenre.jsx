@@ -6,10 +6,10 @@ export default class InputGenre extends React.Component {
     const { value, onChange } = this.props;
 
     return (
-      <label htmlFor="genre" data-testid="genre-input-label">
+      <label htmlFor="genreId" data-testid="genre-input-label">
         Gênero
         <select
-          id="genre"
+          id="genreId"
           name="genre"
           value={ value }
           onChange={ onChange }

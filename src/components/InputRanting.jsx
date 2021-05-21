@@ -6,10 +6,10 @@ export default class InputRating extends React.Component {
     const { value, onChange } = this.props;
 
     return (
-      <label htmlFor="avaliacao" data-testid="rating-input-label">
+      <label htmlFor="avaliacaoId" data-testid="rating-input-label">
         Avaliação
         <input
-          id="avaliacao"
+          id="avaliacaoId"
           type="number"
           name="rating"
           value={ value }

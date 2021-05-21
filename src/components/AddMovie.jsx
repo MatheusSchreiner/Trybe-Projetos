@@ -8,9 +8,10 @@ import InputSinopse from './InputSinopse';
 import InputRating from './InputRanting';
 import InputGenre from './InputGenre';
 
-class AddMovie extends React.Component {
+export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       subtitle: '',
       title: '',
@@ -19,6 +20,8 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.handleOnChange = this.handleOnChange.bind(this);
   }
 
   handleOnChange({ target: { value, name } }) {
@@ -69,5 +72,3 @@ class AddMovie extends React.Component {
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
-
-export default AddMovie;

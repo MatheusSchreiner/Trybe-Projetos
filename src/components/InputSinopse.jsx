@@ -6,12 +6,12 @@ export default class InputSinopse extends React.Component {
     const { value, onChange } = this.props;
 
     return (
-      <label htmlFor="sinopse" data-testid="storyline-input-label">
+      <label htmlFor="sinopseId" data-testid="storyline-input-label">
         Sinopse
         <textarea
           cols="20"
           rows="15"
-          id="sinopse"
+          id="sinopseId"
           name="storyline"
           value={ value }
           onChange={ onChange }

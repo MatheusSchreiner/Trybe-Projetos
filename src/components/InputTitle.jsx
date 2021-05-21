@@ -6,10 +6,10 @@ export default class InputTitle extends React.Component {
     const { value, onChange } = this.props;
 
     return (
-      <label htmlFor="title" data-testid="title-input-label">
+      <label htmlFor="titleId" data-testid="title-input-label">
         Título
         <input
-          id="title"
+          id="titleId"
           type="text"
           name="title"
           value={ value }
