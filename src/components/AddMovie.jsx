@@ -56,14 +56,14 @@ export default class AddMovie extends React.Component {
           <InputSinopse value={ storyline } onChange={ this.handleOnChange } />
           <InputRating value={ Number(rating) } onChange={ this.handleOnChange } />
           <InputGenre value={ genre } onChange={ this.handleOnChange } />
+          <button
+            type="submit"
+            onClick={ this.resetState }
+            data-testid="send-button"
+          >
+            Adicionar filme
+          </button>
         </form>
-        <button
-          type="submit"
-          onClick={ this.resetState }
-          data-testid="send-button"
-        >
-          Adicionar filme
-        </button>
       </div>
     );
   }
