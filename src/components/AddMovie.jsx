@@ -55,7 +55,7 @@ export default class AddMovie extends React.Component {
           <InputSubtitle value={ subtitle } onChange={ this.handleOnChange } />
           <InputImage value={ imagePath } onChange={ this.handleOnChange } />
           <InputSinopse value={ storyline } onChange={ this.handleOnChange } />
-          <InputRating value={ Number(rating) } onChange={ this.handleOnChange } />
+          <InputRating value={ rating } onChange={ this.handleOnChange } />
           <InputGenre value={ genre } onChange={ this.handleOnChange } />
           <button
             type="submit"

@@ -20,6 +20,7 @@ export default class MovieLibrary extends Component {
 
     this.handleAllChange = this.handleAllChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   handleAllChange({ target }) {
