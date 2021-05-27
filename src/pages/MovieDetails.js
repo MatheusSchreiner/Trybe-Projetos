@@ -10,7 +10,7 @@ export default class MovieDetails extends Component {
     super(props);
 
     this.state = {
-      movie: [],
+      movie: {},
       loading: true,
     };
 
