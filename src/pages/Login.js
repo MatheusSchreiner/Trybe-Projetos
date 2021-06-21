@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { enterLogin } from '../actions';
@@ -69,13 +70,15 @@ class Login extends React.Component {
               data-testid="password-input"
             />
           </label>
-          <button
-            type="button"
-            disabled={ login }
-            onClick={ () => addUser(userEmail, userPassword) }
-          >
-            Entrar
-          </button>
+          <Link to="/carteira">
+            <button
+              type="button"
+              disabled={ login }
+              onClick={ () => addUser(userEmail, userPassword) }
+            >
+              Entrar
+            </button>
+          </Link>
         </form>
       </section>
     );
