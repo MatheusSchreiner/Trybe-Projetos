@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import enterLogin from '../actions';
+import { enterLogin } from '../actions';
 
 class Login extends React.Component {
   constructor() {
@@ -32,11 +33,16 @@ class Login extends React.Component {
       this.setState({
         login: false,
       });
+    } else {
+      this.setState({
+        login: true,
+      });
     }
   }
 
   render() {
-    const { login } = this.state;
+    const { login, userEmail, userPassword } = this.state;
+    const { addUser } = this.props;
 
     return (
       <section>
@@ -64,8 +70,9 @@ class Login extends React.Component {
             />
           </label>
           <button
-            type="submit"
+            type="button"
             disabled={ login }
+            onClick={ () => addUser(userEmail, userPassword) }
           >
             Entrar
           </button>
@@ -74,6 +81,10 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  addUser: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = (dispatch) => ({
   addUser: (email, password) => dispatch(

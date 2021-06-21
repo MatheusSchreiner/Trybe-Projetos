@@ -1,17 +1,17 @@
-import LOGIN from '../actions';
+import { LOGIN } from '../actions';
 
 const INITIAL_STATE = {
   email: '',
   password: '',
 };
 
-function reducerUser(state = INITIAL_STATE, { payload: { email, password } }) {
+function reducerUser(state = INITIAL_STATE, action) {
   switch (action.type) {
   case LOGIN:
     return {
       ...state,
-      email,
-      password,
+      email: action.payload.email,
+      password: action.payload.password,
     };
 
   default:
