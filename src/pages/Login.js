@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { enterLogin } from '../actions';
@@ -12,9 +12,19 @@ class Login extends React.Component {
       userEmail: '',
       userPassword: '',
       login: true,
+      redirect: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.saveAndRedirect = this.saveAndRedirect.bind(this);
+  }
+
+  saveAndRedirect(email, password) {
+    const { addUser } = this.props;
+    addUser(email, password);
+    this.setState({
+      redirect: true,
+    });
   }
 
   handleChange({ target: { name, value } }) {
@@ -42,8 +52,8 @@ class Login extends React.Component {
   }
 
   render() {
-    const { login, userEmail, userPassword } = this.state;
-    const { addUser } = this.props;
+    const { login, userEmail, userPassword, redirect } = this.state;
+    if (redirect) return <Redirect to="/carteira" />;
 
     return (
       <section>
@@ -70,15 +80,13 @@ class Login extends React.Component {
               data-testid="password-input"
             />
           </label>
-          <Link to="/carteira">
-            <button
-              type="button"
-              disabled={ login }
-              onClick={ () => addUser(userEmail, userPassword) }
-            >
-              Entrar
-            </button>
-          </Link>
+          <button
+            type="button"
+            disabled={ login }
+            onClick={ () => this.saveAndRedirect(userEmail, userPassword) }
+          >
+            Entrar
+          </button>
         </form>
       </section>
     );
