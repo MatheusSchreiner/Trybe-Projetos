@@ -1,19 +1,19 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
+import React from 'react';
 
-// class Wallet extends React.Component {
-//   render() {
-//     return <div>TrybeWallet</div>;
-//   }
-// }
+import WalletHeader from '../components/WalletHeader';
+import NewExpense from '../components/NewExpense';
+import Expense from '../components/Expense';
 
-// Wallet.propTypes = {
+class Wallet extends React.Component {
+  render() {
+    return (
+      <div>
+        <WalletHeader />
+        <Expense />
+        <NewExpense />
+      </div>
+    );
+  }
+}
 
-// };
-
-// const mapStateToProps = () => ({
-//   user,
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
+export default Wallet;

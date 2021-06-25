@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { enterLogin } from '../actions';
+import { actionEnterLogin } from '../actions';
 
 class Login extends React.Component {
   constructor() {
@@ -99,7 +99,7 @@ Login.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   addUser: (email, password) => dispatch(
-    enterLogin(email, password),
+    actionEnterLogin(email, password),
   ),
 });
 
