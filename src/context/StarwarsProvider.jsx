@@ -8,8 +8,8 @@ const starwarsContext = createContext();
 function StarwarsProvider({ children }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [filters, setFilter] = useState({
-    filterByname: {
+  const [filters, setFilters] = useState({
+    filterByName: {
       name: '',
     },
   });
@@ -28,7 +28,7 @@ function StarwarsProvider({ children }) {
     loading,
     data,
     filters,
-    setFilter,
+    setFilters,
   };
 
   return (

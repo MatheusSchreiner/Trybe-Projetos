@@ -1,9 +1,9 @@
-import React from 'react';
+// import React from 'react';
 
-function Tbody({ data }) {
-  return (
+// function Tbody({ data }) {
+//   return (
 
-  );
-};
+//   );
+// };
 
-export default Tbody;
+// export default Tbody;
