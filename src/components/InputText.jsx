@@ -16,7 +16,7 @@ function InputText({ filters, setFilters }) {
       Digite o nome de um Planet:
       <input
         id="planet"
-        onChange={ (event) => handleChange(event) }
+        onChange={ handleChange }
         data-testid="name-filter"
       />
     </label>
