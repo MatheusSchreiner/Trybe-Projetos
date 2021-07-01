@@ -13,7 +13,7 @@ function InputText({ filters, setFilters }) {
 
   return (
     <label htmlFor="planet">
-      Digite o nome de um Planet:
+      Digite o nome de um Planeta:
       <input
         id="planet"
         onChange={ handleChange }

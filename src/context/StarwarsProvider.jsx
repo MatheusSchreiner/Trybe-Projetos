@@ -12,6 +12,13 @@ function StarwarsProvider({ children }) {
     filterByName: {
       name: '',
     },
+    filterByNumericValues: [
+      {
+        column: 'population',
+        comparison: 'maior que',
+        value: '100000',
+      },
+    ],
   });
 
   useEffect(() => {
