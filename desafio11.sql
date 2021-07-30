@@ -9,4 +9,5 @@ SELECT
             t1.Country = t2.Country
                 AND t1.CustomerID <> t2.CustomerID) AS 'Número de compatriotas'
 FROM
-    w3schools.customers AS t1;
+    w3schools.customers AS t1
+ORDER BY 1;
