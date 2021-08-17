@@ -5,4 +5,5 @@ db.voos.findOne(
     vooId: 1,
     mes: 1,
     ano: 1,
-  });
+  },
+);
