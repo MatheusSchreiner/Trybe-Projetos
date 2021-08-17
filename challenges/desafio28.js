@@ -1,3 +1,7 @@
-const counter = db.voos.count({ "empresa.nome": "LATAM AIRLINES BRASIL", natureza: "Doméstica" });
-db.resumoVoos.insertOne({ empresa: "LATAM AIRLINES BRASIL", totalVoosDomesticos: counter });
-db.resumoVoos.find({}, { _id: 0 });
+const companyName = "LATAM AIRLINES BRASIL";
+const totalVoosDomesticos = db.voos.count({
+  "empresa.nome": companyName,
+  natureza: "Doméstica",
+});
+db.resumoVoos.insertOne({ empresa: companyName, totalVoosDomesticos });
+db.resumoVoos.findOne({ empresa: companyName }, { _id: 0 });
