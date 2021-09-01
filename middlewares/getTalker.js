@@ -1,4 +1,4 @@
-const fs = require('fs/promises');
+const fs = require('fs').promises;
 
 const getATalkers = async (_req, res, next) => {
   try {
@@ -15,6 +15,8 @@ module.exports = getATalkers;
 /* OU
 
 const fs = require('fs').promises;
+ou
+const fs = require('fs/promises'); Mas desta forma não passa no avaliador;
 
 const getTalker = async (_req, res, next) => {
   try {
