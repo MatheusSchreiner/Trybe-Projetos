@@ -6,28 +6,29 @@ const erroWatch = 'O campo "watchedAt" deve ter o formato "dd/mm/aaaa"';
 
 const checkToken = (req, res, next) => {
   const { authorization: token } = req.headers;
-  if (!token) { return res.status(401).json({ message: 'Token não encontrado' }); }
+  if (!token) return res.status(401).json({ message: 'Token não encontrado' });
   if (token.length !== 16) return res.status(401).json({ message: 'Tojen inválido' });
   next();
 };
 
 const checkName = (req, res, next) => {
   const { name } = req.body;
-  if (!name) { return res.status(400).json({ message: 'O campo "name" é obrigatório' }); }
+  if (!name) return res.status(400).json({ message: 'O campo "name" é obrigatório' });
   if (name.length < 3) return res.status(400).json({ message: erroName });
   next();
 };
 
 const checkAge = (req, res, next) => {
   const { age } = req.body;
-  if (!age) { return res.status(400).json({ message: 'O campo "age" é obrigatório' }); }
-  if (age.length < 18) return res.status(400).json({ message: erroAge });
+  if (!age) return res.status(400).json({ message: 'O campo "age" é obrigatório' });
+  if (age < 18) return res.status(400).json({ message: erroAge });
   next();
 };
 
 const checkTalk = (req, res, next) => {
-  const { talk: { watchedAt, rate } } = req.body;
-  if (!watchedAt || !rate) return res.status(400).json({ message: erroTalk });
+  const { talk } = req.body;
+  const { watchedAt, rate } = talk;
+  if (!talk || !watchedAt || !rate) return res.status(400).json({ message: erroTalk });
   next();
 };
 
