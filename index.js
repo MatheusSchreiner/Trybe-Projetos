@@ -15,9 +15,9 @@ app.get('/', (_request, response) => {
   response.status(HTTP_OK_STATUS).send();
 });
 
-app.use((_err, _req, res, _next) => res.status(500).json({ message: 'Erro desconhecido' }));
 app.use('/talker', talker);
 app.use('/login', login);
+app.use((_err, _req, res, _next) => res.status(500).json({ message: 'Erro desconhecido' }));
 
 app.listen(PORT, () => {
   console.log('Online');

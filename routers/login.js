@@ -1,7 +1,7 @@
 const route = require('express').Router();
-const postToken = require('../middlewares/postTokenLogin');
+const token = require('../middlewares/token');
 const { checkEmail, checkPassword } = require('../middlewares/validationLogin');
 
-route.post('/', checkEmail, checkPassword, postToken);
+route.post('/', checkEmail, checkPassword, token);
 
 module.exports = route;
