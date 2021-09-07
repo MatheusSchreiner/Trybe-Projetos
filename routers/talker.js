@@ -12,7 +12,7 @@ const {
 
 route.get('/', getTalker);
 route.get('/search', searchTalker);
-route.get('/:id', getTalkerById);
+route.get('/:id', checkToken, getTalkerById);
 route.post('/', checkToken, checkName, checkAge, checkTalk, checkRate, checkWatche, postTalker);
 route.put('/:id', checkToken, checkName, checkAge, checkTalk, checkRate, checkWatche, putTalker);
 route.delete('/:id', checkToken, deleteTalker);
