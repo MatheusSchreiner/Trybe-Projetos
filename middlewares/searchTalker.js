@@ -1,19 +1,9 @@
 const fs = require('fs').promises;
 
-const searchTalker = async (req, res, next) => {
-  const { name } = req.query;
-  const ZERO = 0;
-  try {
-    const data = await fs.readFile('talker.json', 'utf8').then((f) => JSON.parse(f));
-    const talkers = data.filter((e) => e.name.includes(name));
-    if (talkers.length === ZERO) {
-      return res.status(200).json(data);
-    }
-    return res.status(200).json(talkers);
-  } catch (err) {
-    if (err.code === 'ENOENT') { return res.status(400).json({ ERROR: err }); }
-    next(err);
-  }
+const searchTalker = async (req, res) => {
+  const data = await fs.readFile('talker.json', 'utf8').then((f) => JSON.parse(f));
+  const arr = data.filter((e) => e.name.includes(req.query.q));
+  return res.status(200).json(arr);
 };
 
 module.exports = searchTalker;
