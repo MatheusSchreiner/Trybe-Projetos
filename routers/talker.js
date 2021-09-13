@@ -3,7 +3,7 @@ const route = require('express').Router();
 const getTalker = require('../middlewares/getTalker');
 const getTalkerById = require('../middlewares/getTalkerById');
 const postTalker = require('../middlewares/postTalker');
-const putTalker = require('../middlewares/putTalker');
+// const putTalker = require('../middlewares/putTalker');
 const deleteTalker = require('../middlewares/deleteTalker');
 const searchTalker = require('../middlewares/searchTalker');
 const {
