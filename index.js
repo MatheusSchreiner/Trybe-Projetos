@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const talker = require('./routes/talker');
-const login = require('./routes/login');
+const talker = require('./routers/talker');
+const login = require('./routers/login');
 
 const app = express();
 app.use(bodyParser.json());
@@ -16,7 +16,7 @@ app.get('/', (_request, response) => {
 
 app.use('/talker', talker);
 app.use('/login', login);
-app.use((err, _req, res, _next) => res.status(err.code).json({ message: err.message }));
+app.use((_err, _req, res, _next) => res.status(500).json({ message: 'Erro desconhecido' }));
 
 app.listen(PORT, () => {
   console.log('Online');

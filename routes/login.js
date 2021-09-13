@@ -1,9 +1,7 @@
-const express = require('express');
-const { login } = require('../middlewares');
-const { checkEmail, checkPassword } = require('../middlewares/validators');
+const route = require('express').Router();
+const token = require('../middlewares/token');
+const { checkEmail, checkPassword } = require('../middlewares/validationLogin');
 
-const route = express.Router();
-
-route.post('/', checkEmail, checkPassword, login);
+route.post('/', checkEmail, checkPassword, token);
 
 module.exports = route;
