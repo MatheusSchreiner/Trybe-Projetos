@@ -13,8 +13,9 @@ const {
 route.get('/', getTalker);
 route.get('/search', searchTalker);
 route.get('/:id', getTalkerById);
-route.post('/', checkToken, checkName, checkAge, checkTalk, checkRate, checkWatche, postTalker);
-route.put('/:id', checkToken, checkName, checkAge, checkTalk, checkRate, checkWatche, putTalker);
-route.delete('/:id', checkToken, deleteTalker);
+route.use(checkToken);
+route.post('/', checkName, checkAge, checkTalk, checkRate, checkWatche, postTalker);
+route.put('/:id', checkName, checkAge, checkTalk, checkRate, checkWatche, putTalker);
+route.delete('/:id', deleteTalker);
 
 module.exports = route;
