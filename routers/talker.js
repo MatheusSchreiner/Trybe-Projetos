@@ -11,7 +11,7 @@ const {
 } = require('../middlewares/validationTalker');
 
 route.get('/', getTalker);
-route.get('/search', searchTalker);
+route.get('/search', checkToken, searchTalker);
 route.get('/:id', getTalkerById);
 route.post('/', checkToken, checkName, checkAge, checkTalk, checkRate, checkWatche, postTalker);
 route.put('/:id', checkToken, checkName, checkAge, checkTalk, checkRate, checkWatche, putTalker);
