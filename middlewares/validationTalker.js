@@ -33,8 +33,8 @@ const checkTalk = (req, res, next) => {
 
 const checkRate = (req, res, next) => {
   const { talk: { rate } } = req.body;
-  if (!rate) return res.status(400).json({ message: erroTalk });
   if (rate < 1 || rate > 5) return res.status(400).json({ message: erroRate });
+  if (!rate) return res.status(400).json({ message: erroTalk });
   next();
 };
 
