@@ -13,8 +13,8 @@ app.get('/', (_request, response) => {
 
 app.use('/products', products);
 
-app.use(({ status, message }, _res, res, _next) => {
-  res.status(status).json({ message });
+app.use(({ status, err }, _res, res, _next) => {
+  res.status(status).json({ err });
 });
 
 app.listen(PORT, console.log(`Rodando na porta ${PORT}`));
