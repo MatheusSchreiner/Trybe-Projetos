@@ -1,10 +1,16 @@
 const route = require('express').Router();
-const products = require('../controllers/products');
+const {
+  create,
+  getAll,
+  getById } = require('../controllers/products');
 const {
   productName,
   productQuantity,
-  productExist } = require('../middlewares/validations');
+  productExistByName,
+  productExistById } = require('../middlewares/validations');
 
-route.post('/', productName, productQuantity, productExist, products.create);
+route.post('/', productName, productQuantity, productExistByName, create);
+route.get('/', getAll);
+route.get('/:id', productExistById, getById);
 
 module.exports = route;

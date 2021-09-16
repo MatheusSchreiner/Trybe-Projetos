@@ -14,11 +14,18 @@ const productQuantity = async (req, _res, next) => {
     .catch((err) => next({ status: 422, err }));
 };
 
-const productExist = async (req, _res, next) => {
+const productExistByName = async (req, _res, next) => {
   const { name } = req.body;
   validators.existByName(name)
     .then(() => next())
     .catch((err) => next({ status: 422, err }));
 };
 
-module.exports = { productName, productQuantity, productExist };
+const productExistById = async (req, _res, next) => {
+  const { id } = req.params;
+  validators.existById(id)
+    .then(() => next())
+    .catch((err) => next({ status: 422, err }));
+};
+
+module.exports = { productName, productQuantity, productExistByName, productExistById };
