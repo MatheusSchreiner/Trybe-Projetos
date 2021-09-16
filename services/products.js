@@ -9,4 +9,7 @@ const getAll = async () =>
 const getById = async (id) =>
   products.getById(id).then((data) => data);
 
-module.exports = { create, getAll, getById };
+const updateById = async (id, name, quantity) =>
+  products.updateById(id, name, quantity).then((data) => data);
+
+module.exports = { create, getAll, getById, updateById };

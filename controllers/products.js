@@ -8,7 +8,7 @@ const create = async (req, res) => {
 
 const getAll = async (_req, res) => {
   products.getAll()
-    .then((data) => res.status(200).json(data));
+    .then((data) => res.status(200).json({ products: data }));
 };
 
 const getById = async (req, res) => {
@@ -17,4 +17,11 @@ const getById = async (req, res) => {
     .then((data) => res.status(200).json(data));
 };
 
-module.exports = { create, getAll, getById };
+const updateById = async (req, res) => {
+  const { id } = req.params;
+  const { name, quantity } = req.body;
+  products.updateById(id, name, quantity)
+    .then(() => res.status(200).json({ _id: id, name, quantity }));
+};
+
+module.exports = { create, getAll, getById, updateById };
