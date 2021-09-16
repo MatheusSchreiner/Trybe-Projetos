@@ -19,7 +19,7 @@ const getByName = async (name) => collection()
 const updateById = async (id, name, quantity) => collection()
   .then((col) => col.updateOne({ _id: ObjectId(id) }, { $set: { name, quantity } }));
 
-const removeById = async (id) => collection()
+const deleteById = async (id) => collection()
   .then((col) => col.deleteOne({ _id: ObjectId(id) }));
 
-module.exports = { create, getAll, getById, getByName, updateById, removeById };
+module.exports = { create, getAll, getById, getByName, updateById, deleteById };

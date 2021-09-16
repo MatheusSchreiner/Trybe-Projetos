@@ -12,4 +12,7 @@ const getById = async (id) =>
 const updateById = async (id, name, quantity) =>
   products.updateById(id, name, quantity).then((data) => data);
 
-module.exports = { create, getAll, getById, updateById };
+const deleteById = async (id) =>
+  products.deleteById(id).then((data) => data);
+
+module.exports = { create, getAll, getById, updateById, deleteById };

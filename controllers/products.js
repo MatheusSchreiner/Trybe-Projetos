@@ -24,4 +24,11 @@ const updateById = async (req, res) => {
     .then(() => res.status(200).json({ _id: id, name, quantity }));
 };
 
-module.exports = { create, getAll, getById, updateById };
+const deleteById = async (req, res) => {
+  const { id } = req.params;
+  const { name, quantity } = req.body;
+  products.deleteById(id)
+    .then(() => res.status(200).json({ _id: id, name, quantity }));
+};
+
+module.exports = { create, getAll, getById, updateById, deleteById };
