@@ -1,4 +1,4 @@
-const validators = require('../validators/validators');
+const validators = require('../validators/validatorsProducts');
 
 const productName = async (req, _res, next) => {
   const { name } = req.body;

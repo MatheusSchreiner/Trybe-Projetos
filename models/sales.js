@@ -19,4 +19,7 @@ const updateById = async ({ id, itemSold }) => collection()
 const removeById = async ({ id }) => collection()
   .then((col) => col.deleteOne({ _id: ObjectId(id) }));
 
-module.exports = { create, getAll, getById, updateById, removeById };
+  const updateStock = (id, quantity) => connection().then((db) =>
+  db.collection('products').updateOne({ _id: ObjectId(id) }, { $inc: { quantity } }));
+
+module.exports = { create, getAll, getById, updateById, removeById, updateStock };

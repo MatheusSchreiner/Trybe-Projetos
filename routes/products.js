@@ -9,7 +9,7 @@ const {
   productName,
   productQuantity,
   productExistByName,
-  productExistById } = require('../middlewares/validations');
+  productExistById } = require('../middlewares/validationsProducts');
 
 route.post('/', productName, productQuantity, productExistByName, create);
 route.get('/', getAll);
