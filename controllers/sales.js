@@ -8,7 +8,7 @@ const create = async (req, res) => {
 
 const getAll = async (_req, res) => {
   sales.getAll()
-    .then((data) => res.status(200).json(data));
+    .then((data) => res.status(200).json({ sales: data }));
 };
 
 const getById = async (req, res) => {

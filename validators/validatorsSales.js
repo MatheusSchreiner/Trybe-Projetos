@@ -20,10 +20,10 @@ const quantit = async (itensSold) => {
 };
 
 const saleExistById = async (id) => {
-  if (!ObjectId.isValid(id)) throw err(INVALID_DATA, 'Wrong id format');
+  if (!ObjectId.isValid(id)) throw err(NOT_FOUND, 'Sale not found');
 
   const exist = await sales.getById(id);
-  if (!exist) throw err(NOT_FOUND, 'Sale not Found');
+  if (!exist) throw err(NOT_FOUND, 'Sale not found');
 };
 
 module.exports = { productExistById, quantit, saleExistById };
