@@ -26,4 +26,11 @@ const saleExistById = async (id) => {
   if (!exist) throw err(NOT_FOUND, 'Sale not found');
 };
 
-module.exports = { productExistById, quantit, saleExistById };
+const saleExistByIdDelete = async (id) => {
+  if (!ObjectId.isValid(id)) throw err(INVALID_DATA, 'Wrong sale ID format');
+
+  const exist = await sales.getById(id);
+  if (!exist) throw err(INVALID_DATA, 'Wrong sale ID format');
+};
+
+module.exports = { productExistById, quantit, saleExistById, saleExistByIdDelete };

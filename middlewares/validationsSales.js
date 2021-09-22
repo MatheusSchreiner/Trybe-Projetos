@@ -23,7 +23,7 @@ const saleExistById = async (req, _res, next) => {
 
 const saleExistByIdDelete = async (req, _res, next) => {
   const { id } = req.params;
-  validators.saleExistById(id)
+  validators.saleExistByIdDelete(id)
     .then(() => next())
     .catch((err) => next({ status: 422, err }));
 };
