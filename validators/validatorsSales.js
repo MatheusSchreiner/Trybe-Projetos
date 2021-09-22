@@ -1,34 +1,29 @@
 const err = (code, message) => ({ code, message });
-// const INVALID_DATA = 'invalid_data';
-// const NOT_FOUND = 'not_found';
 const { ObjectId } = require('mongodb');
 const products = require('../models/products');
 const sales = require('../models/sales');
 
-const sale = async (itensSold) => {
-  const minLength = 0;
+const INVALID_DATA = 'invalid_data';
+const NOT_FOUND = 'not_found';
+
+const productExistById = async (itensSold) => {
+  const prod = await products.getAll();
+  const response = itensSold.every(({ productId }) =>
+    prod.find(({ _id }) => productId === _id));
+  if (!response) throw err(INVALID_DATA, 'Wrong product ID or invalid quantity');
+};
+
+const quantit = async (itensSold) => {
   const isValid = itensSold.every(({ quantity }) =>
-    (typeof quantity === 'number' && quantity > minLength));
-  if (!isValid) throw err('invalid_data', 'Wrong product ID or invalid quantity');
+    (typeof quantity === 'number') && (quantity > 0));
+  if (!isValid) throw err(INVALID_DATA, 'Wrong product ID or invalid quantity');
 };
 
-const saleExists = async (id) => {
-  if (!ObjectId.isValid(id)) throw err('not_found', 'Sale not found');
-  const exists = await sales.getById(id);
-  if (!exists) throw err('not_found', 'Sale not found');
+const saleExistById = async (id) => {
+  if (!ObjectId.isValid(id)) throw err(INVALID_DATA, 'Wrong id format');
+
+  const exist = await sales.getById(id);
+  if (!exist) throw err(NOT_FOUND, 'Sale not Found');
 };
 
-const saleId = async (id) => {
-  if (!ObjectId.isValid(id)) throw err('invalid_data', 'Wrong sale ID format');
-};
-
-const stock = async (itensSold) => {
-  const arr = await products.getAll();
-  const available = itensSold.every(({ productId, quantity }) => {
-    const stocks = arr.find((e) => e.id.toString() === productId);
-    return stocks.quantity >= quantity;
-  });
-  if (!available) throw err('stock_problem', 'Such amount is not permitted to sell');
-};
-
-module.exports = { sale, saleExists, saleId, stock };
+module.exports = { productExistById, quantit, saleExistById };

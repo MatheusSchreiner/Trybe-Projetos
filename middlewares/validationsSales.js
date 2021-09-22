@@ -1,19 +1,24 @@
 const validators = require('../validators/validatorsSales');
 
-const sale = (req, _res, next) => validators.sale([...req.body])
-  .then(() => next())
-  .catch((err) => next({ status: 422, err }));
+const productExistById = async (req, _res, next) => {
+  const itensSold = req.body;
+  validators.productExistById(itensSold)
+    .then(() => next())
+    .catch((err) => next({ status: 422, err }));
+};
 
-const saleExists = (req, _res, next) => validators.saleExists(req.params.id)
-  .then(() => next())
-  .catch((err) => next({ status: 404, err }));
+const salesQuantity = async (req, _res, next) => {
+  const itensSold = req.body;
+  validators.quantit(itensSold)
+    .then(() => next())
+    .catch((err) => next({ status: 422, err }));
+};
 
-const saleId = (req, _res, next) => validators.saleId(req.params.id)
-  .then(() => next())
-  .catch((err) => next({ status: 422, err }));
+const salesExistById = async (req, _res, next) => {
+  const { id } = req.params;
+  validators.saleExistById(id)
+    .then(() => next())
+    .catch((err) => next({ status: 404, err }));
+};
 
-const stock = async (req, _res, next) => validators.stock([...req.body])
-  .then(() => next())
-  .catch((err) => next({ status: 404, err }));
-
-module.exports = { sale, saleExists, saleId, stock };
+module.exports = { productExistById, salesQuantity, salesExistById };

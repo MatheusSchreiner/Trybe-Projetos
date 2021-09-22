@@ -1,18 +1,27 @@
 const sales = require('../services/sales');
 
-const create = (req, res) => sales.create([...req.body])
-  .then(({ status, data }) => res.status(status).json(data));
+const create = async (req, res) => {
+  const itensSold = req.body;
+  sales.create(itensSold)
+    .then((data) => res.status(200).json(data));
+};
 
-const getAll = (_req, res) => sales.getAll()
-  .then(({ status, data }) => res.status(status).json({ sales: data }));
+const getAll = async (_req, res) => {
+  sales.getAll()
+    .then((data) => res.status(200).json(data));
+};
 
-const getById = (req, res) => sales.getById(req.params.id)
-  .then(({ status, data }) => res.status(status).json(data));
+const getById = async (req, res) => {
+  const { id } = req.params;
+  sales.getById(id)
+    .then((data) => res.status(200).json(data));
+};
 
-const update = ({ body: [...args], params: { id } }, res) => sales.update(id, args)
-  .then(({ status }) => res.status(status).json({ _id: id, itensSold: args }));
+const updateById = async (req, res) => {
+  const { id } = req.params;
+  const itensSold = req.body;
+  sales.updateById(id, itensSold)
+    .then((data) => res.status(200).json(data));
+};
 
-const remove = (req, res) => sales.remove(req.params.id)
-  .then(({ status, data }) => res.status(status).json(data));
-
-module.exports = { create, getAll, getById, update, remove };
+module.exports = { create, getAll, getById, updateById };

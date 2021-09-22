@@ -1,24 +1,20 @@
 const route = require('express').Router();
-
 const {
   create,
-  getAll,
   getById,
-  update,
-  remove,
+  getAll,
+  updateById,
 } = require('../controllers/sales');
 
 const {
-  sale,
-  saleExists,
-  saleId,
-  stock,
+  productExistById,
+  salesQuantity,
+  salesExistById,
 } = require('../middlewares/validationsSales');
 
-route.post('/', sale, stock, create);
+route.post('/', productExistById, salesQuantity, create);
 route.get('/', getAll);
-route.get('/:id', saleExists, getById);
-route.put('/:id', sale, update);
-route.delete('/:id', saleId, saleExists, remove);
+route.get('/:id', salesExistById, getById);
+route.put('/:id', salesExistById, salesQuantity, updateById);
 
 module.exports = route;
