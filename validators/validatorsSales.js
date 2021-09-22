@@ -9,7 +9,7 @@ const NOT_FOUND = 'not_found';
 const productExistById = async (itensSold) => {
   const prod = await products.getAll();
   const response = itensSold.every(({ productId }) =>
-    prod.find(({ _id }) => productId === _id));
+    prod.some(({ _id }) => productId === _id.toString()));
   if (!response) throw err(INVALID_DATA, 'Wrong product ID or invalid quantity');
 };
 
