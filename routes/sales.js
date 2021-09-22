@@ -4,17 +4,20 @@ const {
   getById,
   getAll,
   updateById,
+  deleteById,
 } = require('../controllers/sales');
 
 const {
   productExistById,
   salesQuantity,
-  salesExistById,
+  saleExistById,
+  saleExistByIdDelete,
 } = require('../middlewares/validationsSales');
 
 route.post('/', productExistById, salesQuantity, create);
 route.get('/', getAll);
-route.get('/:id', salesExistById, getById);
-route.put('/:id', salesExistById, salesQuantity, updateById);
+route.get('/:id', saleExistById, getById);
+route.put('/:id', saleExistById, salesQuantity, updateById);
+route.delete('/:id', saleExistByIdDelete, deleteById);
 
 module.exports = route;

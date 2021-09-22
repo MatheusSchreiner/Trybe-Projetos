@@ -21,7 +21,13 @@ const updateById = async (req, res) => {
   const { id } = req.params;
   const itensSold = req.body;
   sales.updateById(id, itensSold)
+    .then(() => res.status(200).json({ _id: id, itensSold }));
+};
+
+const deleteById = async (req, res) => {
+  const { id } = req.params;
+  sales.deleteById(id)
     .then((data) => res.status(200).json(data));
 };
 
-module.exports = { create, getAll, getById, updateById };
+module.exports = { create, getAll, getById, updateById, deleteById };

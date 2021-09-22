@@ -14,11 +14,18 @@ const salesQuantity = async (req, _res, next) => {
     .catch((err) => next({ status: 422, err }));
 };
 
-const salesExistById = async (req, _res, next) => {
+const saleExistById = async (req, _res, next) => {
   const { id } = req.params;
   validators.saleExistById(id)
     .then(() => next())
     .catch((err) => next({ status: 404, err }));
 };
 
-module.exports = { productExistById, salesQuantity, salesExistById };
+const saleExistByIdDelete = async (req, _res, next) => {
+  const { id } = req.params;
+  validators.saleExistById(id)
+    .then(() => next())
+    .catch((err) => next({ status: 422, err }));
+};
+
+module.exports = { productExistById, salesQuantity, saleExistById, saleExistByIdDelete };

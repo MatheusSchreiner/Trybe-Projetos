@@ -1,4 +1,4 @@
-const ObjectId = require('mongodb');
+const { ObjectId } = require('mongodb');
 const connection = require('./connection');
 
 const collection = async () => connection()
@@ -16,4 +16,7 @@ const create = async (itensSold) => collection()
 const updateById = async (id, itensSold) => collection()
   .then((col) => col.updateOne({ _id: ObjectId(id) }, { $set: { itensSold } }));
 
-module.exports = { getAll, getById, create, updateById };
+const deleteById = async (id) => collection()
+  .then((col) => col.deleteOne({ _id: ObjectId(id) }));
+
+module.exports = { getAll, getById, create, updateById, deleteById };
