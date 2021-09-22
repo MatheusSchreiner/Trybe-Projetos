@@ -12,9 +12,10 @@ const {
   salesQuantity,
   saleExistById,
   saleExistByIdDelete,
+  verificationStock,
 } = require('../middlewares/validationsSales');
 
-route.post('/', productExistById, salesQuantity, create);
+route.post('/', productExistById, salesQuantity, verificationStock, create);
 route.get('/', getAll);
 route.get('/:id', saleExistById, getById);
 route.put('/:id', saleExistById, salesQuantity, updateById);

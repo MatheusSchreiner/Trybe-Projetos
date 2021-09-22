@@ -5,6 +5,7 @@ const sales = require('../models/sales');
 
 const INVALID_DATA = 'invalid_data';
 const NOT_FOUND = 'not_found';
+const STOCK_PROBLEM = 'stock_problem';
 
 const productExistById = async (itensSold) => {
   const prod = await products.getAll();
@@ -33,4 +34,12 @@ const saleExistByIdDelete = async (id) => {
   if (!exist) throw err(INVALID_DATA, 'Wrong sale ID format');
 };
 
-module.exports = { productExistById, quantit, saleExistById, saleExistByIdDelete };
+const stock = async (itensSold) => {
+  const prod = await products.getAll();
+  const response = itensSold.every((e) =>
+    prod.some(({ _id, quantity }) =>
+      (e.productId === _id.toString() && quantity >= e.quantity)));
+  if (!response) throw err(STOCK_PROBLEM, 'Such amount is not permitted to sell');
+};
+
+module.exports = { productExistById, quantit, saleExistById, saleExistByIdDelete, stock };

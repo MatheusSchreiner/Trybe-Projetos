@@ -28,4 +28,17 @@ const saleExistByIdDelete = async (req, _res, next) => {
     .catch((err) => next({ status: 422, err }));
 };
 
-module.exports = { productExistById, salesQuantity, saleExistById, saleExistByIdDelete };
+const verificationStock = async (req, _res, next) => {
+  const itensSold = req.body;
+  validators.stock(itensSold)
+    .then(() => next())
+    .catch((err) => next({ status: 404, err }));
+};
+
+module.exports = {
+  productExistById,
+  salesQuantity,
+  saleExistById,
+  saleExistByIdDelete,
+  verificationStock,
+};
