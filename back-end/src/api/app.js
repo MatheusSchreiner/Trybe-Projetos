@@ -30,8 +30,4 @@ app.use('/user', routes.users);
 
 app.use(error);
 
-httpServer.listen(3002, () => {
-  console.log(`Socket online on port: ${3002}`);
-});
-
-module.exports = app;
+module.exports = httpServer;

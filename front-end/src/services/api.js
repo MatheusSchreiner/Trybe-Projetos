@@ -33,6 +33,10 @@ export const getOrders = async () => axios.get('http://localhost:3001/sales', to
   .then(({ data }) => data)
   .catch((err) => err.response);
 
+export const getSellerOrder = async () => axios.get('http://localhost:3001/', token())
+  .then(({ data }) => data)
+  .catch((err) => err.response);
+
 export const getUserList = async () => axios.get('http://localhost:3001/user/all', token())
   .then(({ data }) => data)
   .catch((err) => err.response);
