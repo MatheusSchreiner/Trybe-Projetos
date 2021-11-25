@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 import { SocketContext } from '../utils/socketContext';
 
 // https://dev.to/bravemaster619/how-to-use-socket-io-client-correctly-in-react-app-o65
 
-export default function OrderInfo({ sale }) {
+function OrderInfo({ sale }) {
   const socket = useContext(SocketContext);
   const [statusOrder, setstatusOrder] = useState('');
 
@@ -56,3 +57,25 @@ export default function OrderInfo({ sale }) {
     </div>
   );
 }
+
+OrderInfo.propTypes = {
+  sale: PropTypes.arrayOf(PropTypes.shape({
+    deliveryAddress: PropTypes.string,
+    deliveryNumber: PropTypes.string,
+    id: PropTypes.number,
+    products: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      price: PropTypes.string,
+      urlImage: PropTypes.string,
+    })),
+    saleDate: PropTypes.string,
+    seller: PropTypes.shape({ name: PropTypes.string }),
+    sellerId: PropTypes.number,
+    status: PropTypes.string,
+    totalPrice: PropTypes.string,
+    userId: PropTypes.number,
+  })).isRequired,
+};
+
+export default OrderInfo;

@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function ProductsOrderList({ sale }) {
+function ProductsOrderList({ sale }) {
   return (
     <>
       <h3> Produtos </h3>
@@ -61,3 +62,24 @@ export default function ProductsOrderList({ sale }) {
     </>
   );
 }
+
+ProductsOrderList.propTypes = {
+  sale: PropTypes.arrayOf(PropTypes.shape({
+    deliveryAddress: PropTypes.string,
+    deliveryNumber: PropTypes.string,
+    id: PropTypes.number,
+    products: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      price: PropTypes.string,
+      urlImage: PropTypes.string,
+    })),
+    saleDate: PropTypes.string,
+    seller: PropTypes.shape({ name: PropTypes.string }),
+    sellerId: PropTypes.number,
+    status: PropTypes.string,
+    totalPrice: PropTypes.string,
+    userId: PropTypes.number,
+  })).isRequired,
+};
+export default ProductsOrderList;
