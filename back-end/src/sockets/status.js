@@ -1,9 +1,10 @@
 const { salesService } = require('../services');
 
 module.exports = (io) => io.on('connection', (socket) => {
-  socket.on('status', ({ id, status }) => {
+  socket.on('status', async({ id, status }) => {
     // requisição para atualizar o status do pedido
-    salesService.updateStatus({ id }, { status });
+    console.log(id, status);
+    await salesService.updateStatus({ id }, { status });
     socket.emit('status', { id, status });
   });
 });

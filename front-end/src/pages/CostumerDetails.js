@@ -1,32 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
+import CostumerOrdersDetails from '../components/CostumerOrderDetails';
 import Header from '../components/Header';
-import { getSale } from '../services/api';
 import { getStorage } from '../utils/localStorage';
 
 export default function CostumerDetails() {
   const { pathname } = useLocation();
   const orderId = pathname.split('/')[3];
+  const [sale, setSale] = useState([]);
 
-  useEffect(() => {
-    getSale(orderId)
-      .then(({ data }) => {
-        console.log(data);
-      });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   getSale(orderId)
+  //     .then(({ data }) => {
+  //       console.log(data);
+  //       setSale(data);
+  //     });
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
-    // header
-    // detalhes do pedido
-  // infomações do pedido
-  // lista de produtos
-  // valor total
-    // <Header
-    //   pageName="DETALHES DE PEDIDOS"
-    //   yourOrder
-    //   userName={ getStorage('user').name }
-    // />
-    <p>oi</p>
+    <>
+      <Header
+        pageName="DETALHES DE PEDIDOS"
+        yourOrder
+        userName={ getStorage('user').name }
+      />
+      <CostumerOrdersDetails sale={ sale } />
+    </>
   );
 }

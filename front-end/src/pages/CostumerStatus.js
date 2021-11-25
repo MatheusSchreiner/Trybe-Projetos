@@ -6,17 +6,20 @@ import { getStorage } from '../utils/localStorage';
 
 export default function OrderStatus() {
   const [orders, setOrders] = useState([]);
-  const [redirect, setRedirect] = useState('');
+  const [redirect, setRedirect] = useState(false);
+  const [orderId, setOrderId] = useState('');
 
-  useEffect(() => getOrders().then(({ data }) => {
-    setOrders(data);
-  }), []);
-
-  const getRedirect = async (id) => (<Redirect to={ `/customer/orders/${id}` } />);
+  useEffect(() => {
+    const Orders = async () => {
+      const { data } = await getOrders();
+      setOrders(data);
+    };
+    Orders();
+  }, []);
 
   return (
     <div>
-      { redirect !== '' && getRedirect(redirect) }
+      { redirect && <Redirect to={ `/customer/orders/${orderId}` } /> }
       <Header
         pageName="LISTA DE PEDIDOS"
         yourOrder="MEUS PEDIDOS"
@@ -26,7 +29,7 @@ export default function OrderStatus() {
       {orders.length && orders.map(({ id, status, saleData, totalPrice }) => (
         <button
           type="button"
-          onClick={ () => { setRedirect(id); } }
+          onClick={ () => { setOrderId(id); setRedirect(true); } }
           key={ id }
         >
           <span
