@@ -7,10 +7,11 @@ import './App.css';
 import Products from './pages/Products';
 import Register from './pages/Register';
 import CostumerDetails from './pages/CostumerDetails';
-import OrderStatus from './pages/OrderStatus';
+import CostumerStatus from './pages/CostumerStatus';
 import Checkout from './pages/Checkout';
 import SalesDetails from './pages/SalesDetails';
 import Admin from './pages/Admin';
+import { SocketContext, socket } from './utils/socketContext';
 
 /**
  *
@@ -20,18 +21,21 @@ function App() {
   return (
     <BrowserRouter>
       <Provider>
-        <Switch>
-          <Route exact path="/" component={ Home } />
-          <Route path="/login" component={ Login } />
-          <Route path="/register" component={ Register } />
-          <Route path="/admin/manage" component={ Admin } />
-          <Route path="/customer/products" component={ Products } />
-          <Route path="/customer/checkout" component={ Checkout } />
-          <Route path="/customer/orders/:id" component={ CostumerDetails } />
-          <Route path="/customer/orders" component={ OrderStatus } />
-          <Route path="/seller/orders" component={ SalesDetails } />
-          <Route path="*" render={ () => (<h1>NOT FOUND</h1>) } />
-        </Switch>
+        <SocketContext.Provider value={ socket }>
+          <Switch>
+            <Route exact path="/" component={ Home } />
+            <Route path="/login" component={ Login } />
+            <Route path="/register" component={ Register } />
+            <Route path="/admin/manage" component={ Admin } />
+            <Route path="/customer/products" component={ Products } />
+            <Route path="/customer/checkout" component={ Checkout } />
+            <Route path="/customer/orders/:id" component={ CostumerDetails } />
+            <Route path="/customer/orders" component={ CostumerStatus } />
+            <Route path="/seller/orders" component={ SalesDetails } />
+            <Route path="*" render={ () => (<h1>NOT FOUND</h1>) } />
+          </Switch>
+        </SocketContext.Provider>
+
       </Provider>
     </BrowserRouter>
   );

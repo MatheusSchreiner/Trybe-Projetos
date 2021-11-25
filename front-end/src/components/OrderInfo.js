@@ -1,22 +1,19 @@
-import React, { useEffect } from 'react';
-import io from 'socket.io-client';
+import React, { useContext, useState } from 'react';
+import { SocketContext } from '../utils/socketContext';
 
-const socket = io.connect('http://localhost:3002/');// server-side
-// https://www.fullstacklabs.co/blog/chat-application-react-express-socket-io
-const deliveryOrder = (id, status) => {
-  socket.on('connection', () => {
-    console.log('I\'m connected with the back-end');
-  });
-  socket.emit('status', ({ id, status }));
-};
-
-// useEffect(() => () => {
-//   socket.on('connection', () => {
-//     console.log('I\'m connected with the back-end');
-//   });
-// }, []);
+// https://dev.to/bravemaster619/how-to-use-socket-io-client-correctly-in-react-app-o65
 
 export default function OrderInfo({ sale }) {
+  const socket = useContext(SocketContext);
+  const [statusOrder, setstatusOrder] = useState('');
+
+  if (sale.length === 0) return null;
+
+  const deliveryOrder = (id, status) => {
+    socket.emit('status', ({ id, status }));
+    setstatusOrder('Entregue');
+  };
+
   if (sale.length === 0) return null;
   return (
     <div>
@@ -42,7 +39,7 @@ export default function OrderInfo({ sale }) {
       <span
         data-testid="customer_order_details__element-order-details-label-delivery-status"
       >
-        { sale[0].status }
+        { statusOrder !== 'Entregue' ? sale[0].status : statusOrder }
       </span>
       <button
         type="button"
