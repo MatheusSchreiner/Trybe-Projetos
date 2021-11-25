@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import OrderInfo from './OrderInfo';
-import OrderList from './OrderList';
+import ProductsOrderList from './ProductsOrderList';
 import { getSale } from '../services/api';
 
 export default function CostumerOrdersDetails() {
@@ -21,7 +21,10 @@ export default function CostumerOrdersDetails() {
   return (
     <div>
       <OrderInfo sale={ sale } />
-      {/* <OrderList sale={ sale } /> */}
+      <ProductsOrderList sale={ sale } />
+      <h2 data-testid="customer_order_details__element-order-total-price">
+        {sale[0] && sale[0].totalPrice.replace('.', ',')}
+      </h2>
     </div>
   );
 }

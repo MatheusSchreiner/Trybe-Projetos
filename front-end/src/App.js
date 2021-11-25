@@ -6,10 +6,10 @@ import Home from './pages/Home';
 import './App.css';
 import Products from './pages/Products';
 import Register from './pages/Register';
-import CostumerStatus from './pages/CostumerStatus';
+import CustomerStatus from './pages/CustomerStatus';
 import SalesStatus from './pages/SalesStatus';
 import Checkout from './pages/Checkout';
-import CostumerDetails from './pages/CostumerDetails';
+import CustomerDetails from './pages/CustomerDetails';
 import SalesDetails from './pages/SalesDetails';
 import Admin from './pages/Admin';
 import { SocketContext, socket } from './utils/socketContext';
@@ -30,9 +30,9 @@ function App() {
             <Route path="/admin/manage" component={ Admin } />
             <Route path="/customer/products" component={ Products } />
             <Route path="/customer/checkout" component={ Checkout } />
-            <Route path="/customer/orders/:id" component={ CostumerDetails } />
+            <Route path="/customer/orders/:id" component={ CustomerDetails } />
             <Route path="/seller/orders/:id" component={ SalesDetails } />
-            <Route path="/customer/orders" component={ CostumerStatus } />
+            <Route path="/customer/orders" component={ CustomerStatus } />
             <Route path="/seller/orders" component={ SalesStatus } />
             <Route path="*" render={ () => (<h1>NOT FOUND</h1>) } />
           </Switch>

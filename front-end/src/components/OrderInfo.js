@@ -14,6 +14,14 @@ export default function OrderInfo({ sale }) {
     setstatusOrder('Entregue');
   };
 
+  const date = (data) => {
+    const newDate = new Date(data);
+    const dia = newDate.getDate();
+    const mes = (newDate.getMonth() + 1).toString();
+    const ano = newDate.getFullYear();
+    return `${dia}/${mes}/${ano}`;
+  };
+
   if (sale.length === 0) return null;
   return (
     <div>
@@ -30,11 +38,7 @@ export default function OrderInfo({ sale }) {
       <span
         data-testid="customer_order_details__element-order-details-label-order-date"
       >
-        {(sale[0].saleDate.split('T')[0].split('-')[2])}
-        /
-        {(sale[0].saleDate.split('-')[1])}
-        /
-        {(sale[0].saleDate.split('-')[0])}
+        { date(sale[0].saleDate) }
       </span>
       <span
         data-testid="customer_order_details__element-order-details-label-delivery-status"
@@ -45,6 +49,7 @@ export default function OrderInfo({ sale }) {
         type="button"
         data-testid="customer_order_details__button-delivery-check"
         onClick={ () => { deliveryOrder(sale[0].id, 'Entregue'); } }
+        disabled
       >
         MARCAR COMO ENTREGUE
       </button>
