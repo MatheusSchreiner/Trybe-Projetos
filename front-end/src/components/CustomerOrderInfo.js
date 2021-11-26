@@ -4,15 +4,14 @@ import { SocketContext } from '../utils/socketContext';
 
 // https://dev.to/bravemaster619/how-to-use-socket-io-client-correctly-in-react-app-o65
 
-export default function CustomerOrderInfo({ sale }) {
+export default function CustomerOrderInfo({ sale, setStatus }) {
   const socket = useContext(SocketContext);
-  const [statusOrder, setstatusOrder] = useState('');
 
   if (sale.length === 0) return null;
 
   const deliveryOrder = (id, status) => {
     socket.emit('status', ({ id, status }));
-    setstatusOrder('Entregue');
+    setStatus('Entregue');
   };
 
   const date = (data) => {
@@ -22,6 +21,12 @@ export default function CustomerOrderInfo({ sale }) {
     const ano = newDate.getFullYear();
     return `${dia}/${mes}/${ano}`;
   };
+
+  function disableDelivered(status) {
+    if (status !== 'Em Trânsito') {
+      return true;
+    }
+  }
 
   if (sale.length === 0) return null;
   return (
@@ -44,13 +49,13 @@ export default function CustomerOrderInfo({ sale }) {
       <span
         data-testid="customer_order_details__element-order-details-label-delivery-status"
       >
-        { statusOrder !== 'Entregue' ? sale[0].status : statusOrder }
+        { sale[0].status }
       </span>
       <button
         type="button"
         data-testid="customer_order_details__button-delivery-check"
         onClick={ () => { deliveryOrder(sale[0].id, 'Entregue'); } }
-        disabled
+        disabled={ disableDelivered(sale[0].status) }
       >
         MARCAR COMO ENTREGUE
       </button>

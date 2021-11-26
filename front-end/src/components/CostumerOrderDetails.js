@@ -8,19 +8,18 @@ export default function CostumerOrdersDetails() {
   const { pathname } = useLocation();
   const orderId = pathname.split('/')[3];
   const [sale, setSale] = useState([]);
+  const [status, setStatus] = useState('')
 
   useEffect(() => {
-    console.log(orderId);
     getSale(orderId)
       .then(({ data }) => {
         console.log(data);
         setSale(data);
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [status]);
   return (
     <div>
-      <CostumerOrderInfo sale={ sale } />
+      <CostumerOrderInfo sale={ sale } setStatus={ setStatus } />
       <CustomerOrderList sale={ sale } />
       <h2 data-testid="customer_order_details__element-order-total-price">
         {sale[0] && sale[0].totalPrice.replace('.', ',')}

@@ -11,6 +11,7 @@ export default function SellersOrdersDetails() {
   const orderId = pathname.split('/')[3];
   // Cria o estado para a venda
   const [sale, setSale] = useState([]);
+  const [status, setStatus] = useState('')
   // Faz apenas 1 requisição assim que o componente é renderizado
   useEffect(() => {
     getSale(orderId)
@@ -18,10 +19,10 @@ export default function SellersOrdersDetails() {
         setSale(data);
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [status]);
   return (
     <div>
-      <SellersOrderInfo sale={ sale } setSale={ setSale } />
+      <SellersOrderInfo sale={ sale } setStatus={ setStatus } />
       <SellersOrderList sale={ sale } />
       <h2 data-testid="seller_order_details__element-order-total-price">
         {/* Para evitar que quebre após primeira renderização */}

@@ -6,16 +6,13 @@ import { SocketContext } from '../utils/socketContext';
 const EM_TRANSITO = 'Em Trânsito';
 const PREPARANDO = 'Preparando';
 
-export default function SellersOrderInfo({ sale }) {
+export default function SellersOrderInfo({ sale, setStatus }) {
   // Importa o hook de contexto do socket
   const socket = useContext(SocketContext);
-  // Cria o estado para o status da venda
-  const [statusOrder, setstatusOrder] = useState('');
-
   // emite um socket para atualizar o status da venda e atualiza o estado
   const handleStatus = (id, status) => {
     socket.emit('status', ({ id, status }));
-    setstatusOrder(status);
+    setStatus(status);
   };
   // formata a data - Roger Franco.
   const date = (data) => {
@@ -26,25 +23,12 @@ export default function SellersOrderInfo({ sale }) {
     return `${dia}/${mes}/${ano}`;
   };
 
-  function disablePrepare(statusState, statusSales) {
-    if (statusState === PREPARANDO || statusState === EM_TRANSITO) {
-      return true;
-    }
-    if (statusSales === PREPARANDO || statusSales === EM_TRANSITO) {
-      return true;
-    }
+  function disablePrepare(status) {
+    if(status !== "Pendente") return true
   }
-
-  function disableShipping(statusState, statusSales) {
-    // console.log(statusState, statusState === EM_TRANSITO || !statusState === PREPARANDO || statusState '');
-
-    if (statusState === EM_TRANSITO || !statusState === PREPARANDO || statusState) {
-      return true;
-    }
-    console.log(statusSales, statusSales === EM_TRANSITO || statusSales !== PREPARANDO);
-    if (statusSales === EM_TRANSITO || statusSales !== PREPARANDO) {
-      return true;
-    }
+  
+  function disableShipping(status) {
+    if(status !== "Preparando") return true
   }
 
   // Para não quebrar a aplicaçao ao renderizar a pagina antes da requisição ser realizada
@@ -64,17 +48,13 @@ export default function SellersOrderInfo({ sale }) {
       <span
         data-testid="seller_order_details__element-order-details-label-delivery-status"
       >
-        {/* Se o botão não for clicado(statusOrder === ''),
-         então o status vem da requisição
-         caso seja, o status exibido é o estado statusOrder */}
-        { statusOrder === '' ? sale[0].status : statusOrder }
-
+        { sale[0].status }
       </span>
       <button
         type="button"
         data-testid="seller_order_details__button-preparing-check"
         onClick={ () => { handleStatus(sale[0].id, PREPARANDO); } }
-        disabled={ disablePrepare(statusOrder, sale[0].status) }
+        disabled={ disablePrepare(sale[0].status) }
       >
         PREPARAR PEDIDO
       </button>
@@ -82,7 +62,7 @@ export default function SellersOrderInfo({ sale }) {
         type="button"
         data-testid="seller_order_details__button-dispatch-check"
         onClick={ () => { handleStatus(sale[0].id, EM_TRANSITO); } }
-        disabled={ disableShipping(statusOrder, sale[0].status) }
+        disabled={ disableShipping(sale[0].status) }
       >
         SAIU PARA ENTREGA
       </button>
