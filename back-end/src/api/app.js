@@ -1,14 +1,16 @@
 const express = require('express');
 const cors = require('cors');
+const http = require('http');
+const socket = require('socket.io');
 
 const error = require('../middleware/error');
 const routes = require('./routes');
 
 const app = express();
 
-const httpServer = require('http').createServer(app);
+const httpServer = http.createServer(app);
 
-const io = require('socket.io')(httpServer, {
+const io = socket(httpServer, {
   cors: {
     origin: 'http://localhost:3000',
     method: ['GET', 'POST'],
