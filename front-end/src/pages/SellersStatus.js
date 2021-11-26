@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import { getOrders } from '../services/api';
 import { getStorage } from '../utils/localStorage';
 
-export default function SalesStatus() {
+export default function SellersStatus() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {

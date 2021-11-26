@@ -25,6 +25,10 @@ export const checkoutProducts = async (body) => axios.post('http://localhost:300
   .then(({ data }) => data)
   .catch((err) => err.response);
 
+export const getSale = async (id) => axios.get(`http://localhost:3001/sales/${id}`, token())
+  .then(({ data }) => data)
+  .catch((err) => err.response);
+
 export const getOrders = async () => axios.get('http://localhost:3001/sales', token())
   .then(({ data }) => data)
   .catch((err) => err.response);

@@ -25,7 +25,7 @@ export default function ListItemCheckout() {
         });
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sellers]); // Este sellers renderiza em loop os vendedores no campo input do select
+  }, []); // Este sellers renderiza em loop os vendedores no campo input do select
 
   useEffect(() => {
     setProductsList(products.filter(({ quant }) => quant > 0));
@@ -61,10 +61,7 @@ export default function ListItemCheckout() {
       cart,
 
     };
-
     const { data } = await checkoutProducts(objectOrder);
-
-    console.log(data, 'dataaaa');
     return history.push(`/customer/orders/${data[0].saleId}`);
   }
 

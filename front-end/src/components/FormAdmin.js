@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getUserList, registerUser } from '../services/api';
 
-function FormAdmin() {
+export default function FormAdmin() {
   const [userRegister, setUserRegister] = useState(
     { name: '', email: '', password: '', role: '' },
   );
@@ -170,5 +170,3 @@ function FormAdmin() {
     </>
   );
 }
-
-export default FormAdmin;

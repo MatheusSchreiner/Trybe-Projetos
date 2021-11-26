@@ -1,26 +1,28 @@
 const express = require('express');
 const cors = require('cors');
 const http = require('http');
-const io = require('socket.io');
+const socket = require('socket.io');
 
 const error = require('../middleware/error');
 const routes = require('./routes');
 
 const app = express();
 
-const server = http.createServer(app);
-const socket = (io)(server, {
+const httpServer = http.createServer(app);
+
+const io = socket(httpServer, {
   cors: {
-    origin: 'http://localhost:3001', // url aceita pelo cors
-    methods: ['GET', 'POST'], // Métodos aceitos pela url
-  } });
+    origin: 'http://localhost:3000',
+    method: ['GET', 'POST'],
+  },
+});
 
 app.use(express.json());
 
 app.use(cors());
 app.use(express.static('public'));
 
-require('../sockets/status')(socket);
+require('../sockets/status')(io);
 
 app.use('/login', routes.login);
 app.use('/register', routes.register);
@@ -30,4 +32,4 @@ app.use('/user', routes.users);
 
 app.use(error);
 
-module.exports = app;
+module.exports = httpServer;
