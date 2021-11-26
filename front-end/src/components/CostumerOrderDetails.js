@@ -8,7 +8,7 @@ export default function CostumerOrdersDetails() {
   const { pathname } = useLocation();
   const orderId = pathname.split('/')[3];
   const [sale, setSale] = useState([]);
-  const [status, setStatus] = useState('')
+  const [status, setStatus] = useState('');
 
   useEffect(() => {
     getSale(orderId)
@@ -16,7 +16,7 @@ export default function CostumerOrdersDetails() {
         console.log(data);
         setSale(data);
       });
-  }, [status]);
+  }, [orderId, status]);
   return (
     <div>
       <CostumerOrderInfo sale={ sale } setStatus={ setStatus } />

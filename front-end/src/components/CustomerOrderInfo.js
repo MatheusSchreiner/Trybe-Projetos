@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { SocketContext } from '../utils/socketContext';
 
@@ -81,4 +81,5 @@ CustomerOrderInfo.propTypes = {
     totalPrice: PropTypes.string,
     userId: PropTypes.number,
   })).isRequired,
+  setStatus: PropTypes.func.isRequired,
 };

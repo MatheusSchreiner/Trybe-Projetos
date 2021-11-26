@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { SocketContext } from '../utils/socketContext';
 
@@ -24,11 +24,11 @@ export default function SellersOrderInfo({ sale, setStatus }) {
   };
 
   function disablePrepare(status) {
-    if(status !== "Pendente") return true
+    if (status !== 'Pendente') return true;
   }
-  
+
   function disableShipping(status) {
-    if(status !== "Preparando") return true
+    if (status !== 'Preparando') return true;
   }
 
   // Para não quebrar a aplicaçao ao renderizar a pagina antes da requisição ser realizada
@@ -86,5 +86,6 @@ SellersOrderInfo.propTypes = {
     status: PropTypes.string,
     totalPrice: PropTypes.string,
     userId: PropTypes.number,
-  }, { length: PropTypes.number })).isRequired,
+  })).isRequired,
+  setStatus: PropTypes.func.isRequired,
 };

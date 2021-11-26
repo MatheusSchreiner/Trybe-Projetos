@@ -11,7 +11,7 @@ export default function SellersOrdersDetails() {
   const orderId = pathname.split('/')[3];
   // Cria o estado para a venda
   const [sale, setSale] = useState([]);
-  const [status, setStatus] = useState('')
+  const [status, setStatus] = useState('');
   // Faz apenas 1 requisição assim que o componente é renderizado
   useEffect(() => {
     getSale(orderId)
