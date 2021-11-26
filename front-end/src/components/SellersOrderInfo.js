@@ -36,10 +36,13 @@ export default function SellersOrderInfo({ sale }) {
   }
 
   function disableShipping(statusState, statusSales) {
-    if (statusState === EM_TRANSITO) {
+    // console.log(statusState, statusState === EM_TRANSITO || !statusState === PREPARANDO || statusState '');
+
+    if (statusState === EM_TRANSITO || !statusState === PREPARANDO || statusState) {
       return true;
     }
-    if (statusSales === EM_TRANSITO) {
+    console.log(statusSales, statusSales === EM_TRANSITO || statusSales !== PREPARANDO);
+    if (statusSales === EM_TRANSITO || statusSales !== PREPARANDO) {
       return true;
     }
   }
