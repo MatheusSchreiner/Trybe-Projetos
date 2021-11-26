@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function HeaderADM(props) {
+export default function HeaderADM(props) {
   const { pageName } = props;
   return (
     <span
@@ -14,5 +14,3 @@ function HeaderADM(props) {
 }
 
 HeaderADM.propTypes = PropTypes.string.isRequired;
-
-export default HeaderADM;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ProductsOrderList({ sale }) {
+export default function ProductsOrderList({ sale }) {
   return (
     <>
       <h3> Produtos </h3>
@@ -9,7 +9,7 @@ function ProductsOrderList({ sale }) {
         <li key={ product.id }>
           <span
             data-testid={
-              `customer_order_details__element-order-table-item-number-${index}`
+              `seller_order_details__element-order-table-item-number-${index}`
             }
           >
             {product.id}
@@ -19,7 +19,7 @@ function ProductsOrderList({ sale }) {
           -
           <span
             data-testid={
-              `customer_order_details__element-order-table-name-${index}`
+              `seller_order_details__element-order-table-name-${index}`
             }
           >
             {product.name}
@@ -29,7 +29,7 @@ function ProductsOrderList({ sale }) {
           -
           <span
             data-testid={
-              `customer_order_details__element-order-table-quantity-${index}`
+              `seller_order_details__element-order-table-quantity-${index}`
             }
           >
             {product.SalesProduct.quantity}
@@ -39,7 +39,7 @@ function ProductsOrderList({ sale }) {
           -
           <span
             data-testid={
-              `customer_order_details__element-order-table-sub-total-${index}`
+              `seller_order_details__element-order-table-unit-price-${index}`
             }
           >
             {product.price}
@@ -49,7 +49,7 @@ function ProductsOrderList({ sale }) {
           -
           <span
             data-testid={
-              `customer_order_details__element-order-table-price-${index}`
+              `seller_order_details__element-order-table-sub-total-${index}`
             }
           >
             {(product.price * product.SalesProduct.quantity).toFixed(2).replace('.', ',')}
@@ -82,4 +82,3 @@ ProductsOrderList.propTypes = {
     userId: PropTypes.number,
   })).isRequired,
 };
-export default ProductsOrderList;

@@ -7,10 +7,10 @@ import './App.css';
 import Products from './pages/Products';
 import Register from './pages/Register';
 import CustomerStatus from './pages/CustomerStatus';
-import SalesStatus from './pages/SalesStatus';
+import SellersStatus from './pages/SellersStatus';
 import Checkout from './pages/Checkout';
 import CustomerDetails from './pages/CustomerDetails';
-import SalesDetails from './pages/SalesDetails';
+import SellersDetails from './pages/SellersDetails';
 import Admin from './pages/Admin';
 import { SocketContext, socket } from './utils/socketContext';
 
@@ -31,9 +31,9 @@ function App() {
             <Route path="/customer/products" component={ Products } />
             <Route path="/customer/checkout" component={ Checkout } />
             <Route path="/customer/orders/:id" component={ CustomerDetails } />
-            <Route path="/seller/orders/:id" component={ SalesDetails } />
+            <Route path="/seller/orders/:id" component={ SellersDetails } />
             <Route path="/customer/orders" component={ CustomerStatus } />
-            <Route path="/seller/orders" component={ SalesStatus } />
+            <Route path="/seller/orders" component={ SellersStatus } />
             <Route path="*" render={ () => (<h1>NOT FOUND</h1>) } />
           </Switch>
         </SocketContext.Provider>

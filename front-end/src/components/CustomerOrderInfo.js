@@ -4,7 +4,7 @@ import { SocketContext } from '../utils/socketContext';
 
 // https://dev.to/bravemaster619/how-to-use-socket-io-client-correctly-in-react-app-o65
 
-function OrderInfo({ sale }) {
+export default function CustomerOrderInfo({ sale }) {
   const socket = useContext(SocketContext);
   const [statusOrder, setstatusOrder] = useState('');
 
@@ -58,7 +58,7 @@ function OrderInfo({ sale }) {
   );
 }
 
-OrderInfo.propTypes = {
+CustomerOrderInfo.propTypes = {
   sale: PropTypes.arrayOf(PropTypes.shape({
     deliveryAddress: PropTypes.string,
     deliveryNumber: PropTypes.string,
@@ -77,5 +77,3 @@ OrderInfo.propTypes = {
     userId: PropTypes.number,
   })).isRequired,
 };
-
-export default OrderInfo;
