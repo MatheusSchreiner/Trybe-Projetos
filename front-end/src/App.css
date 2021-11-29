@@ -9,6 +9,55 @@
   justify-content: center;
   width: 100%;
 }
+.orderTotal{
+  float: right;
+}
+
+.select {
+  margin-top: 60px;
+}
+
+.bgrImg{
+  background: linear-gradient(rgba(255,255,255,.9), rgba(255,255,255,.5)), url("./images/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-position-y: 100px ;
+  height: 100vh;
+}
+
+.status{
+  margin: 20px 0 20px 0;
+  height: 120px;
+  text-align: center;
+  align-items: center;
+
+}
+.status p{
+  margin-top: 20px;
+  font-size: small;
+  padding: 0;
+}
+.statusBtn{
+  margin: -16px;
+  width: 119px;
+  padding: 45px 0px 50px 0px;
+  /* border: 34px 29px 60px 22px; */
+}
+
+.dateCard {
+  margin-top: -20px;
+}
+
+.bgrImgProd{
+  background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.3)), url("./images/logo.png");
+  background-repeat:repeat-y;
+  background-position: center;
+  background-size: contain;
+  background-position-y: 100px ;
+  /* position: fixed; */
+  height: 100%;
+}
 
 .App > .logo {
   animation: shake 1.5s infinite ease;

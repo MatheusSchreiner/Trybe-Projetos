@@ -24,6 +24,15 @@ export default function SellersOrdersDetails() {
     <div>
       <SellersOrderInfo sale={ sale } setStatus={ setStatus } />
       <SellersOrderList sale={ sale } />
+      <button
+        type="button"
+        disabled
+        className="orderTotal btn btn-lg btn-dark"
+        data-testid="customer_checkout__element-order-total-price"
+      >
+        Total:
+        {sale[0] && sale[0].totalPrice.replace('.', ',')}
+      </button>
       <h2 data-testid="seller_order_details__element-order-total-price">
         {/* Para evitar que quebre após primeira renderização */}
         {sale[0] && sale[0].totalPrice.replace('.', ',')}

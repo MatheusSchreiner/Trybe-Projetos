@@ -21,9 +21,14 @@ export default function CostumerOrdersDetails() {
     <div>
       <CostumerOrderInfo sale={ sale } setStatus={ setStatus } />
       <CustomerOrderList sale={ sale } />
-      <h2 data-testid="customer_order_details__element-order-total-price">
+      <button
+        type="button"
+        disabled
+        className="orderTotal btn btn-lg btn-dark"
+      >
+        Total:
         {sale[0] && sale[0].totalPrice.replace('.', ',')}
-      </h2>
+      </button>
     </div>
   );
 }

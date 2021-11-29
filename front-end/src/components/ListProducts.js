@@ -41,7 +41,7 @@ export default function ListProducts() {
   }, [setProducts]);
 
   return (
-    <div>
+    <div className="bgrImgProd">
       <div className="card text-center fixed-bottom">
         <button
           type="button"
