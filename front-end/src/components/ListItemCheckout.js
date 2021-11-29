@@ -67,84 +67,45 @@ export default function ListItemCheckout() {
 
   return (
     <>
-      <p>Finalizar Pedido:</p>
-      <ul>
-        <li>
-          <span>
-            Item
-          </span>
-          <span>
-            Descrição
-          </span>
-          <span>
-            Quantidade
-          </span>
-          <span>
-            Valor Unitário
-          </span>
-          <span>
-            Sub-Total
-          </span>
-          <span>
-            Remover Item
-          </span>
-        </li>
-      </ul>
-      {productsList.map((product, i) => {
-        const { id, name, price, quant } = product;
-        return (
-          <ul key={ id }>
-            <li>
-              <span
-                key={ id }
-                className="itemId"
-                data-testid={ `customer_checkout__element-order-table-item-number-${i}` }
-              >
-                {i + 1}
-              </span>
-              <span
-                className="itemName"
-                data-testid={ `customer_checkout__element-order-table-name-${i}` }
-              >
-                {name}
-              </span>
-              <span
-                className="itemQuantity"
-                data-testid={ `customer_checkout__element-order-table-quantity-${i}` }
-              >
-                {quant}
-              </span>
-              <span
-                className="unitPrice"
-                data-testid={ `customer_checkout__element-order-table-unit-price-${i}` }
-              >
-                {price.replace(/\./g, ',')}
-              </span>
-              <span
-                className="subtotalPrice"
-                data-testid={ `customer_checkout__element-order-table-sub-total-${i}` }
-              >
-                {itemTotal(price, quant).toFixed(2).replace(/\./g, ',')}
-              </span>
-              <button
-                className="removeItem"
-                data-testid={ `customer_checkout__element-order-table-remove-${i}` }
-                type="submit"
-                onClick={ () => {
-                  const valorFinal = itemTotal(product.price, product.quant);
-                  setTotal(total - valorFinal);
-                  const newProduct = products.map((element) => (
-                    element === product ? { ...element, quant: 0 } : element));
-                  setProducts(newProduct);
-                } }
-              >
-                Remover
-              </button>
-            </li>
-          </ul>
-        );
-      })}
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Qtd</th>
+            <th scope="col">Total</th>
+            <th scope="col">Remover</th>
+          </tr>
+        </thead>
+        <tbody>
 
+          {productsList.map((product, i) => {
+            const { id, name, price, quant } = product;
+            return (
+              <tr key={ id }>
+                <td className="itemName">{name}</td>
+                <td className="itemQuantity">{quant}</td>
+                <td className="subtotalPrice">{itemTotal(price, quant).toFixed(2).replace(/\./g, ',')}</td>
+                <td>
+                  {' '}
+                  <button
+                    className="removeItem"
+                    type="submit"
+                    onClick={ () => {
+                      const valorFinal = itemTotal(product.price, product.quant);
+                      setTotal(total - valorFinal);
+                      const newProduct = products.map((element) => (
+                        element === product ? { ...element, quant: 0 } : element));
+                      setProducts(newProduct);
+                    } }
+                  >
+                    Remover
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
       <div
         className="orderTotal"
         data-testid="customer_checkout__element-order-total-price"
