@@ -8,7 +8,7 @@ export default function SellersDetails() {
     <>
       <Header
         pageName="DETALHES DE PEDIDOS"
-        yourOrder
+        yourOrder={ false }
         userName={ getStorage('user').name }
       />
       <SellersOrdersDetails />

@@ -6,19 +6,23 @@ export default function HeaderProducts(props) {
   const { pageName } = props;
   return (
     <>
-      <span
-        data-testid="customer_products__element-navbar-link-products"
-        className="pageName"
-      >
-        {pageName}
-      </span>
-      <Link
-        data-testid="customer_products__element-navbar-link-orders"
-        className="yourOrder"
-        to="/customer/orders"
-      >
-        MEUS PEDIDOS
-      </Link>
+      { pageName.split('/').includes('customer') && (
+        <li className="nav-item pageName">
+          <Link
+            to="/customer/products"
+          >
+            PRODUTOS
+          </Link>
+        </li>)}
+      <li className="nav-item pageName">
+        <Link
+          data-testid="customer_products__element-navbar-link-orders"
+          className="yourOrder"
+          to={ pageName.split('/').includes('customer') ? '/customer/orders' : '/seller/orders' }
+        >
+          PEDIDOS
+        </Link>
+      </li>
     </>
   );
 }

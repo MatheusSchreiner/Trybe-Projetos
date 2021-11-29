@@ -41,66 +41,92 @@ export default function ListProducts() {
   }, [setProducts]);
 
   return (
-    <>
-      <h3>Products</h3>
+    <div>
+      <div className="card text-center fixed-bottom">
+        <button
+          type="button"
+          className="btn btn-dark"
+          data-testid="customer_products__button-cart"
+          onClick={ () => history.push('/customer/checkout') }
+          disabled={ total < 1 }
+        >
+          Ver no carrinho:
+          {' '}
+          <span data-testid="customer_products__checkout-bottom-value">
+            {total.toFixed(2).replace(/\./g, ',')}
+          </span>
+        </button>
+      </div>
+      <div className="row row-cols-2 row-cols-md-2 g-2">
+        {products && products.map((product) => (
+          <div key={ product.id }>
+            <div className="col">
+              <div className="card text-center card-product">
+                <img
+                  src={ product.urlImage }
+                  alt={ product.name }
+                  className="card-img-top"
+                  style={ { width: '90px', height: '120px', alignSelf: 'center' } }
+                  data-testid={ `customer_products__img-card-bg-image-${product.id}` }
+                />
+                <div className="card-body">
+                  <p
+                    className="card-title"
+                    data-testid={ `customer_products__element-card-title-${product.id}` }
+                  >
+                    {product.name}
+                  </p>
+                  <div className="container">
+                    <div className="row justify-content-center">
+                      <div className="col-4" style={ { marginLeft: '-20px' } }>
+                        <button
+                          type="button"
+                          className="btn btn-dark"
+                          data-testid={ `customer_products__button-card-rm-item-${product.id}` }
+                          onClick={ ({ target }) => setQuantityItems(target, product) }
+                        >
+                          -
+                        </button>
+                      </div>
+                      <div className="col-4">
+                        <input
+                          type="number"
+                          className="form-control-sm"
+                          style={ { width: '30px' } }
+                          value={ product.quant }
+                          min="0"
+                          onChange={ ({ target }) => setQuantityItems(target, product) }
+                          data-testid={ `customer_products__input-card-quantity-${product.id}` }
+                        />
+                      </div>
+                      <div className="col-4">
+                        <button
+                          type="button"
+                          className="btn btn-dark"
+                          data-testid={ `customer_products__button-card-add-item-${product.id}` }
+                          onClick={ ({ target }) => setQuantityItems(target, product) }
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <li
+                    data-testid={ `customer_products__element-card-price-${product.id}` }
+                  >
+                    {product.price.replace(/\./g, ',')}
 
-      {products && products.map((product) => (
-        <section key={ product.id }>
-          <img
-            src={ product.urlImage }
-            alt={ product.name }
-            style={ { width: '5rem' } }
-            data-testid={ `customer_products__img-card-bg-image-${product.id}` }
-          />
-          <section>
-            <span data-testid={ `customer_products__element-card-title-${product.id}` }>
-              {product.name}
-            </span>
-          </section>
-          <button
-            type="button"
-            data-testid={ `customer_products__button-card-rm-item-${product.id}` }
-            onClick={ ({ target }) => setQuantityItems(target, product) }
-          >
-            -
-          </button>
-          <input
-            type="number"
-            value={ product.quant }
-            min="0"
-            onChange={ ({ target }) => setQuantityItems(target, product) }
-            data-testid={ `customer_products__input-card-quantity-${product.id}` }
-          />
+                  </li>
 
-          <button
-            type="button"
-            data-testid={ `customer_products__button-card-add-item-${product.id}` }
-            onClick={ ({ target }) => setQuantityItems(target, product) }
-          >
-            +
-          </button>
-          <li
-            data-testid={ `customer_products__element-card-price-${product.id}` }
-          >
-            {product.price.replace(/\./g, ',')}
+                </div>
+              </div>
+            </div>
+          </div>
 
-          </li>
-        </section>
+        ))}
+      </div>
 
-      ))}
-      <button
-        type="button"
-        data-testid="customer_products__button-cart"
-        onClick={ () => history.push('/customer/checkout') }
-        disabled={ total < 1 }
-      >
-        Ver no carrinho:
-        {' '}
-        <span data-testid="customer_products__checkout-bottom-value">
-          {total.toFixed(2).replace(/\./g, ',')}
-        </span>
-      </button>
-    </>
+    </div>
 
   );
 }
