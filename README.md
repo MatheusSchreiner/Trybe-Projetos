@@ -30,9 +30,9 @@ Seja bem vindo(a), este repositório contém todos os projetos desenvolvidos enq
 |MongoDB Data Flights|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Mongodb-Data-Flights|MongoDB|
 |MongoDB Commerce|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Mongodb-Commerce|MongoDB|
 |MongoDB Aggregations|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Mongodb-Aggregations|MongoDB|
-|NodeJS - Talker Manager|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Talker-Manager|NodeJS|
-|NodeJS - Store Manager|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Store-Manager|NodeJS, JWT e MongoDB|
-|NodeJS - Cookmaster|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Cookmaster|NodeJS, JWT, Multer e MongoDB|
+|Talker Manager|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Talker-Manager|NodeJS|
+|Store Manager|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Store-Manager|NodeJS, JWT e MongoDB|
+|Cookmaster|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Cookmaster|NodeJS, JWT, Multer e MongoDB|
 |Stranger Things Frontend|Deployment|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Stranger-Things-Frontend|Heroku|
 |Stranger Things Backend|Deployment|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Stranger-Things-Backend|Heroku|
 |Blogs API|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Blogs-Api|NodeJS, JWT e ORM|
