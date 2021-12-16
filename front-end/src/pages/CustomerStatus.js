@@ -14,6 +14,7 @@ export default function OrderStatus() {
     const ano = newDate.getFullYear();
     return `${dia}/${mes}/${ano}`;
   };
+  let statusClass = '';
 
   useEffect(() => {
     const takeOrders = async () => {
@@ -25,37 +26,66 @@ export default function OrderStatus() {
 
   return (
 
-    <div>
+    <div className="bgrImgProd">
       <Header
         pageName="LISTA DE PEDIDOS"
-        yourOrder
         userName={ getStorage('user') && getStorage('user').name }
       />
 
       {orders.length && orders.map(({ id, status, saleDate, totalPrice }) => {
-        console.log(id);
+        if (status === 'Preparando') {
+          statusClass = 'btn-warning';
+        }
+        if (status === 'Em Trânsito') {
+          statusClass = 'btn-info';
+        }
+        if (status === 'Pendente') {
+          statusClass = 'btn-danger';
+        }
+        if (status === 'Entregue') {
+          statusClass = 'btn-success';
+        }
         return (
           <Link to={ `/customer/orders/${id}` } key={ id }>
-            <span
-              data-testid={ `customer_orders__element-order-id-${id}` }
-            >
-              {id}
-            </span>
-            <span
-              data-testid={ `customer_orders__element-delivery-status-${id}` }
-            >
-              {status}
-            </span>
-            <span
-              data-testid={ `customer_orders__element-order-date-${id}` }
-            >
-              {date(saleDate)}
-            </span>
-            <span
-              data-testid={ `customer_orders__element-card-price-${id}` }
-            >
-              {totalPrice.replace(/\./, ',')}
-            </span>
+            <div className="card-group container">
+              <div className="row">
+                <div className="card col status align-middle">
+                  <div className="card-body align-middle">
+                    <p className="card-title align-middle">
+                      Pedido
+                      {' '}
+                      {id}
+                    </p>
+                  </div>
+                </div>
+                <div className="card col status">
+                  <div className="card-body">
+                    <button
+                      className={ `card-title btn btn-sm ${statusClass} statusBtn` }
+                      type="button"
+                    >
+                      {status}
+
+                    </button>
+                  </div>
+                </div>
+                <div className="card col status ">
+                  <div className="card-body dateCard">
+                    <p className="card-title ">
+                      Total:
+                      {' '}
+                      <br />
+                      {totalPrice.replace(/\./, ',')}
+                      {' '}
+                      <br />
+                      Data:
+                      {' '}
+                      {date(saleDate)}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </Link>
         );
       })}

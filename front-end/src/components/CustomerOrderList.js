@@ -3,63 +3,28 @@ import PropTypes from 'prop-types';
 
 export default function ProductsOrderList({ sale }) {
   return (
-    <>
-      <h3> Produtos </h3>
-      {sale[0] && sale[0].products.map((product, index) => (
-        <li key={ product.id }>
-          <span
-            data-testid={
-              `customer_order_details__element-order-table-item-number-${index}`
-            }
-          >
-            {product.id}
-
-          </span>
-          {' '}
-          -
-          <span
-            data-testid={
-              `customer_order_details__element-order-table-name-${index}`
-            }
-          >
-            {product.name}
-
-          </span>
-          {' '}
-          -
-          <span
-            data-testid={
-              `customer_order_details__element-order-table-quantity-${index}`
-            }
-          >
-            {product.SalesProduct.quantity}
-
-          </span>
-          {' '}
-          -
-          <span
-            data-testid={
-              `customer_order_details__element-order-table-sub-total-${index}`
-            }
-          >
-            {product.price}
-
-          </span>
-          {' '}
-          -
-          <span
-            data-testid={
-              `customer_order_details__element-order-table-price-${index}`
-            }
-          >
-            {(product.price * product.SalesProduct.quantity).toFixed(2).replace('.', ',')}
-
-          </span>
-          {' '}
-          -
-        </li>
-      ))}
-    </>
+    <div>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Qtd</th>
+            <th scope="col">Valor Un.</th>
+            <th scope="col">subTotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sale[0] && sale[0].products.map((product, index) => (
+            <tr key={ product.id }>
+              <td>{product.name}</td>
+              <td>{product.SalesProduct.quantity}</td>
+              <td>{product.price}</td>
+              <td>{(product.price * product.SalesProduct.quantity).toFixed(2).replace('.', ',')}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
