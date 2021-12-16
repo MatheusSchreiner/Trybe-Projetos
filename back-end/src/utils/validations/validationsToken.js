@@ -3,7 +3,7 @@ const secret = require('fs')
   .readFileSync('jwt.evaluation.key', { encoding: 'utf-8' })
   .trim();
 
-const errorMessage = require('../errosCode/errosMessage');
+const errorMessage = require('../errosCode/errosCode');
 
 const err = (statusCode) => ({ statusCode });
 

@@ -1,4 +1,4 @@
-const errorMessage = require('../errosCode/errosMessage');
+const errorMessage = require('../errosCode/errosCode');
 
 const err = (statusCode) => ({ statusCode });
 

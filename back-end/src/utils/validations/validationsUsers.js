@@ -2,7 +2,7 @@ const md5 = require('md5');
 const { Op } = require('sequelize');
 
 const { User } = require('../../database/models');
-const errorMessage = require('../errosCode/errosMessage');
+const errorMessage = require('../errosCode/errosCode');
 
 const err = (statusCode) => ({ statusCode });
 
