@@ -9,7 +9,7 @@ def ordenation_string(string):
 
     while has_swapped:
         has_swapped = False
-        
+
         for i in range(len(lista) - num_of_iterations - 1):
             if lista[i] > lista[i + 1]:
                 lista[i], lista[i + 1] = lista[i + 1], lista[i]
@@ -21,5 +21,5 @@ def ordenation_string(string):
 def is_anagram(first_string, second_string):
     if len(first_string) != len(second_string):
         return False
-    
+
     return ordenation_string(first_string) == ordenation_string(second_string)
