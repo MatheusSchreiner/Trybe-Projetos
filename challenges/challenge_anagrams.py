@@ -15,5 +15,5 @@ def ordenation_string(string):
 def is_anagram(first_string, second_string):
     if len(first_string) != len(second_string):
         return False
-    
+
     return ordenation_string(first_string) == ordenation_string(second_string)
