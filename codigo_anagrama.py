@@ -1,8 +1,9 @@
 def ordenation_string(string):
     lista = list(string)
 
-    # Código do conteúdo da trybe sobre bubble_sort
+    # Código do conteúdo da trybe sobre bubble_sort, Mas não passou no requisito de tempo
     # https://app.betrybe.com/course/computer-science/algoritmos/algoritmos-de-ordenacao-e-busca/29521083-44ea-488d-a74d-216b1ac79b04/conteudos/60672880-f607-40d3-92fc-e551b740a91f/algoritmos-de-ordenacao/fd503999-673b-443d-afb1-ffcc5d1718f4?use_case=side_bar
+    
     has_swapped = True
 
     num_of_iterations = 0
@@ -14,6 +15,7 @@ def ordenation_string(string):
             if lista[i] > lista[i + 1]:
                 lista[i], lista[i + 1] = lista[i + 1], lista[i]
                 has_swapped = True
+                
         num_of_iterations += 1
 
     return lista
