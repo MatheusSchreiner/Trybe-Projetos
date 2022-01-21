@@ -1,12 +1,12 @@
 def ordenation_string(string):
     lista = list(string)
-    
+
     # https://stackoverflow.com/questions/11964450/python-order-a-list-of-numbers-without-built-in-sort-min-max-function
     new_list_string = []
-    
+
     while lista:
         minimun = lista[0]
-        
+
         for character in lista:
             if character < minimun:
                 minimun = character
