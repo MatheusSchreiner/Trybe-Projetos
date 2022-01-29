@@ -37,7 +37,7 @@ def scrape_noticia(html_content):
     url = sel.css("head link[rel=canonical]::attr(href)").get()
     title = sel.css(".tec--article__header__title::text").get()
     timestamp = sel.css("time::attr(datetime)").get()
-    writer = sel.css(".tec--author__info__link::text").get()
+    writer = sel.css(".z--font-bold *::text").get()
     shares = sel.css(".tec--toolbar__item::text").get()
     comments = sel.css("#js-comments-btn::attr(data-count)").get()
     summary = sel.css(".tec--article__body > p:nth-child(1) *::text").getall()
@@ -48,7 +48,7 @@ def scrape_noticia(html_content):
         "url": url,
         "title": title,
         "timestamp": timestamp,
-        "writer": writer.strip() if writer else None,
+        "writer": writer.strip(),
         "shares_count": int(shares.split()[0]) if shares else 0,
         "comments_count": int(comments),
         "summary": "".join(summary),
