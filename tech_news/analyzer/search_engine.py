@@ -44,7 +44,7 @@ import datetime
 # MongoDb regex query with case insensitive search
 def search_by_title(title):
     list = []
-    for n in find_news({"title": {"$regex": title, "$options": "i"}}): 
+    for n in find_news({"title": {"$regex": title, "$options": "i"}}):
         list.append(n["title"], n["url"])
     return list
 
