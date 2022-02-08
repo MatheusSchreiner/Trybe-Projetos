@@ -28,13 +28,13 @@ class InventoryControl:
             'massa': 0,
             'frango': 0,
         }
-        self.inventory_copy = self.MINIMUM_INVENTORY.copy()
+        self.inventory_cop = self.MINIMUM_INVENTORY.copy()
 
     def add_new_order(self, costumer, order, day):
         TrackOrders().add_new_order(costumer, order, day)
         if self.check_inventory(order):
             for i in self.INGREDIENTS[order]:
-                self.inventory_copy[i] -= 1
+                self.inventory_cop[i] -= 1
                 self.ingredients_sold[i] += 1
         return False
 
@@ -45,4 +45,4 @@ class InventoryControl:
         return {i for i in self.INGREDIENTS if self.check_inventory(i)}
 
     def check_inventory(self, order):
-        return all(self.inventory_copy[i] != 0 for i in self.INGREDIENTS[order])
+        return all(self.inventory_cop[i] != 0 for i in self.INGREDIENTS[order])
