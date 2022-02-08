@@ -1,3 +1,6 @@
+from src.track_orders import TrackOrders
+
+
 class InventoryControl:
     INGREDIENTS = {
         'hamburguer': ['pao', 'carne', 'queijo'],
@@ -16,10 +19,30 @@ class InventoryControl:
     }
 
     def __init__(self):
-        pass
+        self.ingredients_sold = {
+            'pao': 0,
+            'carne': 0,
+            'queijo': 0,
+            'molho': 0,
+            'presunto': 0,
+            'massa': 0,
+            'frango': 0,
+        }
+        self.inventory_copy = self.MINIMUM_INVENTORY.copy()
 
     def add_new_order(self, costumer, order, day):
-        pass
+        TrackOrders().add_new_order(costumer, order, day)
+        if self.check_inventory(order):
+            for i in self.INGREDIENTS[order]:
+                self.inventory_copy[i] -= 1
+                self.ingredients_sold[i] += 1
+        return False
 
     def get_quantities_to_buy(self):
-        pass
+        return self.ingredients_sold
+
+    def get_available_dishes(self):
+        return {i for i in self.INGREDIENTS if self.check_inventory(i)}
+
+    def check_inventory(self, order):
+        return all(self.inventory_copy[i] != 0 for i in self.INGREDIENTS[order])
