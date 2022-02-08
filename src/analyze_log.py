@@ -10,24 +10,24 @@ def read(path):
 
 
 def high_order_costumer(file, costumer):
-    costumer_meals = [val["order"] for val in file if val["costumer"] == costumer]
+    costumer_meals = [v["order"] for v in file if v["costumer"] == costumer]
     return max(costumer_meals, key=costumer_meals.count)
 
 
 def high_order_meal(file, costumer, meal):
-    costumer_meal = [val["order"] for val in file if val["costumer"] == costumer]
+    costumer_meal = [v["order"] for v in file if v["costumer"] == costumer]
     return costumer_meal.count(meal)
 
 
 def never_order_meal(file, costumer):
     order = {val["order"] for val in file}
-    costumer_meal = {val["order"] for val in file if val["costumer"] == costumer}
+    costumer_meal = {v["order"] for v in file if v["costumer"] == costumer}
     return order.difference(costumer_meal)
 
 
 def never_goes_costumer(file, costumer):
     day = {val["day"] for val in file}
-    costumer_day = {val["day"] for val in file if val["costumer"] == costumer}
+    costumer_day = {v["day"] for v in file if v["costumer"] == costumer}
     return day.difference(costumer_day)
 
 
