@@ -4,7 +4,7 @@ from .file_management import txt_importer
 
 def process(path_file, instance):
     data = txt_importer(path_file)
-    
+
     obj = {
         "nome_do_arquivo": path_file,
         "qtd_linhas": len(data),

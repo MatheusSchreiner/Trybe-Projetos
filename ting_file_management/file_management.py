@@ -1,5 +1,3 @@
-from genericpath import exists
-from importlib.resources import path
 import sys
 
 
