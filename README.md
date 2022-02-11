@@ -41,3 +41,4 @@ Seja bem vindo(a), este repositório contém todos os projetos desenvolvidos enq
 |Job Insights|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Job-Insights|Python|
 |Inventory Report|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Inventory-Report|Python, POO|
 |Tech News|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Tech-News| Python, Raspagem de Dados|
+|Algorithms|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Algorithms|Python, Lógica de Complexidade|
