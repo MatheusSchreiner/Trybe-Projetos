@@ -1,46 +1,3 @@
-<<<<<<< HEAD
-# Trybe Projetos
-
-<p>
-Seja bem vindo(a), este repositório contém todos os projetos desenvolvidos enquanto estudante da escola de programação <a href="https://www.betrybe.com/" target="_blank">Trybe</a>. Os projetos estão organizados em ordem cronológica, assim poderá acompanhar a evoluação dos meus códigos e do meu aprendizado. Fique avontade e não hesite em mandar sua dúvida.
-</p>
-
-|Project Name|Module|Repository|Technologies|
-|---|---|---|---|
-|Lessons Learned|Fundamentos|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Lessons-Learned|HTML & CSS|
-|Playground Functions|Fundamentos|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Playground-Functions|JavaScript|
-|Pixels Art|Fundamentos|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Pixels-Art|HTML, CSS & JS|
-|ToDo List|Fundamentos|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Todo-List|HTML, CSS & JS|
-|Facebook Signup|Fundamentos|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Facebook-Signup|HTML, CSS & JS|
-|JS Unit Tests|Fundamentos|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-JS-Unit-Tests|JavaScript & Unit Tests|
-|Zoo Functions|Fundamentos|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Zoo-Functions|JavaScript & HOF|
-|Shopping Cart|Fundamentos|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Shopping-Cart|HTML, CSS & JS|
-|Jest|Fundamentos|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Jest|JEST|
-|Movie Cards Library|Frontend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Movie-Cards-Library|React|
-|Movie Cards Library Stateful|Frontend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Movie-Cards-Library-Stateful|React|
-|Movie Cards Library CRUD|Frontend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Movie-Cards-Library-Crud|React|
-|Frontend Online Store|Frontend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Frontend-Online-Store|React|
-|React Testing Library|Frontend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-React-Testing-Library|React Testing Library|
-|Trybe Wallet|Frontend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Trybewallet|React & Redux|
-|Trivia React Redux|Frontend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Trivia-React-Redux|React & Redux|
-|Star Wars Planets Search|Frontend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Starwars-Planets-Search|React & Context API + Hooks|
-|Recipes App|Frontend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Recipes-App|React & Context API + Hooks|
-|MySQL All For One|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-MySQL-All-For-One|MySQL|
-|Vocabulary Booster|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-MySQL-Vocabulary-Booster|MySQL|
-|MySQL One For All|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-MySQL-One-For-All|MySQL|
-|MongoDB Data Flights|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Mongodb-Data-Flights|MongoDB|
-|MongoDB Commerce|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Mongodb-Commerce|MongoDB|
-|MongoDB Aggregations|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Mongodb-Aggregations|MongoDB|
-|Talker Manager|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Talker-Manager|NodeJS|
-|Store Manager|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Store-Manager|NodeJS, JWT e MongoDB|
-|Cookmaster|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Cookmaster|NodeJS, JWT, Multer e MongoDB|
-|Stranger Things Frontend|Deployment|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Stranger-Things-Frontend|Heroku|
-|Stranger Things Backend|Deployment|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Stranger-Things-Backend|Heroku|
-|Blogs API|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Blogs-Api|NodeJS, JWT e ORM|
-|Webchat|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Webchat|NodeJS, ORM e WebSocket|
-|Delivery App|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Delivery-App|NodeJS, ORM, JWT, React, Context API|
-|Job Insights|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Job-Insights|Python|
-=======
 ### Termos de acordos
 
 Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe.
@@ -64,16 +21,43 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
 
 Lista de requisitos:
-- [Requisitos obrigatórios](#requisitos-obrigatórios)
-  - [1 - Criar um método `generate` numa classe `SimpleReport` do módulo `inventory_report/reports/simple_report.py`. Esse método deverá receber dados numa lista contendo estruturas do tipo `dict` e deverá retornar uma string formatada como um relatório](#1---criar-um-método-generate-numa-classe-simplereport-do-módulo-inventory_reportreportssimple_reportpy-esse-método-deverá-receber-dados-numa-lista-contendo-estruturas-do-tipo-dict-e-deverá-retornar-uma-string-formatada-como-um-relatório)
-  - [2 - Criar um método `generate` numa classe `CompleteReport` do módulo `inventory_report/reports/complete_report.py`. Esse método deverá receber dados numa lista contendo estruturas do tipo `dict` e deverá retornar uma string formatada como um relatório](#2---criar-um-método-generate-numa-classe-completereport-do-módulo-inventory_reportreportscomplete_reportpy-esse-método-deverá-receber-dados-numa-lista-contendo-estruturas-do-tipo-dict-e-deverá-retornar-uma-string-formatada-como-um-relatório)
-  - [3 - Criar um método `import_data` dentro de uma classe `Inventory` do módulo `inventory_report/inventory/inventory.py`, capaz de ler um arquivo CSV o qual o caminho é passado como parâmetro](#3---criar-um-método-import_data-dentro-de-uma-classe-inventory-do-módulo-inventory_reportinventoryinventorypy-capaz-de-ler-um-arquivo-csv-o-qual-o-caminho-é-passado-como-parâmetro)
-  - [4 - Criar um método `import_data` dentro de uma classe `Inventory` do módulo `inventory_report/inventory/inventory.py`, capaz de ler um arquivo JSON o qual o caminho é passado como parâmetro](#4---criar-um-método-import_data-dentro-de-uma-classe-inventory-do-módulo-inventory_reportinventoryinventorypy-capaz-de-ler-um-arquivo-json-o-qual-o-caminho-é-passado-como-parâmetro)
-  - [5 - Criar um método `import_data` dentro de uma classe `Inventory` do módulo `inventory_report/inventory/inventory.py`, capaz de ler um arquivo XML o qual o caminho é passado como parâmetro](#5---criar-um-método-import_data-dentro-de-uma-classe-inventory-do-módulo-inventory_reportinventoryinventorypy-capaz-de-ler-um-arquivo-xml-o-qual-o-caminho-é-passado-como-parâmetro)
-  - [6 - Criar uma classe abstrata `Importer` no módulo `inventory_report/importer/importer.py`, que terá três classes herdeiras: `CsvImporter`, `JsonImporter` e `XmlImporter`, cada uma definida em seu respectivo módulo](#6---criar-uma-classe-abstrata-importer-no-módulo-inventory_reportimporterimporterpy-que-terá-três-classes-herdeiras-csvimporter-jsonimporter-e-xmlimporter-cada-uma-definida-em-seu-respectivo-módulo)
-  - [7 - Criar uma classe `InventoryIterator` no módulo `inventory_report/inventory/inventory_iterator.py`, que implementa a interface de um iterator (`Iterator`). A classe `InventoryRefactor` deve implementar o método `__iter__`, que retornará este iterador](#7---criar-uma-classe-inventoryiterator-no-módulo-inventory_reportinventoryinventory_iteratorpy-que-implementa-a-interface-de-um-iterator-iterator-a-classe-inventoryrefactor-deve-implementar-o-método-__iter__-que-retornará-este-iterador)
-- [Requisitos bônus](#requisitos-bônus)
-  - [8 - Preencha a função main no módulo `inventory_report/main.py` que, ao receber pela linha de comando o caminho de um arquivo e o tipo de relatório, devolve o relatório correto](#8---preencha-a-função-main-no-módulo-inventory_reportmainpy-que-ao-receber-pela-linha-de-comando-o-caminho-de-um-arquivo-e-o-tipo-de-relatório-devolve-o-relatório-correto)
+- [Boas vindas ao repositório do projeto de Relatório de Estoque!](#boas-vindas-ao-repositório-do-projeto-de-relatório-de-estoque)
+  - [SUMÁRIO](#sumário)
+  - [Habilidades](#habilidades)
+  - [Data de entrega](#data-de-entrega)
+  - [Entregáveis](#entregáveis)
+    - [⚠️ É importante que seus arquivos tenham exatamente estes nomes! ⚠️](#️-é-importante-que-seus-arquivos-tenham-exatamente-estes-nomes-️)
+  - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
+    - [Como o projeto deve ser executável](#como-o-projeto-deve-ser-executável)
+  - [Desenvolvimento e testes](#desenvolvimento-e-testes)
+  - [Dados](#dados)
+    - [Importação de arquivos CSV](#importação-de-arquivos-csv)
+    - [Importação de arquivos JSON](#importação-de-arquivos-json)
+    - [Importação de arquivos XML](#importação-de-arquivos-xml)
+  - [Instruções para entregar seu projeto:](#instruções-para-entregar-seu-projeto)
+    - [⚠️ Se você estiver fazendo esse projeto em duplas ⚠️](#️-se-você-estiver-fazendo-esse-projeto-em-duplas-️)
+    - [ANTES DE COMEÇAR A DESENVOLVER:](#antes-de-começar-a-desenvolver)
+  - [Requisitos obrigatórios:](#requisitos-obrigatórios)
+      - [1 - Criar um método `generate` numa classe `SimpleReport` do módulo `inventory_report/reports/simple_report.py`. Esse método deverá receber dados numa lista contendo estruturas do tipo `dict` e deverá retornar uma string formatada como um relatório.](#1---criar-um-método-generate-numa-classe-simplereport-do-módulo-inventory_reportreportssimple_reportpy-esse-método-deverá-receber-dados-numa-lista-contendo-estruturas-do-tipo-dict-e-deverá-retornar-uma-string-formatada-como-um-relatório)
+        - [As seguintes verificações serão feitas:](#as-seguintes-verificações-serão-feitas)
+      - [2 - Criar um método `generate` numa classe `CompleteReport` do módulo `inventory_report/reports/complete_report.py`. Esse método deverá receber dados numa lista contendo estruturas do tipo `dict` e deverá retornar uma string formatada como um relatório.](#2---criar-um-método-generate-numa-classe-completereport-do-módulo-inventory_reportreportscomplete_reportpy-esse-método-deverá-receber-dados-numa-lista-contendo-estruturas-do-tipo-dict-e-deverá-retornar-uma-string-formatada-como-um-relatório)
+        - [As seguintes verificações serão feitas:](#as-seguintes-verificações-serão-feitas-1)
+      - [3 - Criar um método `import_data` dentro de uma classe `Inventory` do módulo `inventory_report/inventory/inventory.py`, capaz de ler um arquivo CSV o qual o caminho é passado como parâmetro.](#3---criar-um-método-import_data-dentro-de-uma-classe-inventory-do-módulo-inventory_reportinventoryinventorypy-capaz-de-ler-um-arquivo-csv-o-qual-o-caminho-é-passado-como-parâmetro)
+        - [As seguintes verificações serão feitas:](#as-seguintes-verificações-serão-feitas-2)
+      - [4 - Criar um método `import_data` dentro de uma classe `Inventory` do módulo `inventory_report/inventory/inventory.py`, capaz de ler um arquivo JSON o qual o caminho é passado como parâmetro.](#4---criar-um-método-import_data-dentro-de-uma-classe-inventory-do-módulo-inventory_reportinventoryinventorypy-capaz-de-ler-um-arquivo-json-o-qual-o-caminho-é-passado-como-parâmetro)
+        - [As seguintes verificações serão feitas:](#as-seguintes-verificações-serão-feitas-3)
+      - [5 - Criar um método `import_data` dentro de uma classe `Inventory` do módulo `inventory_report/inventory/inventory.py`, capaz de ler um arquivo XML o qual o caminho é passado como parâmetro.](#5---criar-um-método-import_data-dentro-de-uma-classe-inventory-do-módulo-inventory_reportinventoryinventorypy-capaz-de-ler-um-arquivo-xml-o-qual-o-caminho-é-passado-como-parâmetro)
+        - [As seguintes verificações serão feitas:](#as-seguintes-verificações-serão-feitas-4)
+      - [6 - Criar uma classe abstrata `Importer` no módulo `inventory_report/importer/importer.py`, que terá três classes herdeiras: `CsvImporter`, `JsonImporter` e `XmlImporter`, cada uma definida em seu respectivo módulo.](#6---criar-uma-classe-abstrata-importer-no-módulo-inventory_reportimporterimporterpy-que-terá-três-classes-herdeiras-csvimporter-jsonimporter-e-xmlimporter-cada-uma-definida-em-seu-respectivo-módulo)
+        - [As seguintes verificações serão feitas:](#as-seguintes-verificações-serão-feitas-5)
+      - [7 - Criar uma classe `InventoryIterator` no módulo `inventory_report/inventory/inventory_iterator.py`, que implementa a interface de um iterator (`Iterator`). A classe `InventoryRefactor` deve implementar o método `__iter__`, que retornará este iterador.](#7---criar-uma-classe-inventoryiterator-no-módulo-inventory_reportinventoryinventory_iteratorpy-que-implementa-a-interface-de-um-iterator-iterator-a-classe-inventoryrefactor-deve-implementar-o-método-__iter__-que-retornará-este-iterador)
+        - [As seguintes verificações serão feitas:](#as-seguintes-verificações-serão-feitas-6)
+  - [Requisitos bônus:](#requisitos-bônus)
+      - [8 - Preencha a função `main` no módulo `inventory_report/main.py` que, ao receber pela linha de comando o caminho de um arquivo e o tipo de relatório, devolve o relatório correto.](#8---preencha-a-função-main-no-módulo-inventory_reportmainpy-que-ao-receber-pela-linha-de-comando-o-caminho-de-um-arquivo-e-o-tipo-de-relatório-devolve-o-relatório-correto)
+        - [As seguintes verificações serão feitas:](#as-seguintes-verificações-serão-feitas-7)
+  - [Depois de terminar o desenvolvimento](#depois-de-terminar-o-desenvolvimento)
+  - [Revisando um pull request](#revisando-um-pull-request)
+- [Avisos finais](#avisos-finais)
 
 - [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento)
   - [Revisando um Pull Request](#revisando-um-pull-request)
