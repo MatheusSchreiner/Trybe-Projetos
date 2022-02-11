@@ -1,6 +1,3 @@
-import sys
-
-
 # https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops
 def exists_word(word, instance):
     file = instance.search(0)
@@ -28,4 +25,3 @@ def search_by_word(word, instance):
             for index, line in enumerate(file["linhas_do_arquivo"])
             if word.lower() in line.lower()
             ]
-    
