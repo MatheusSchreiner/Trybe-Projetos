@@ -42,4 +42,5 @@ Seja bem vindo(a), este repositório contém todos os projetos desenvolvidos enq
 |Inventory Report|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Inventory-Report|Python, POO|
 |Tech News|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Tech-News| Python, Raspagem de Dados|
 |Algorithms|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Algorithms|Python, Lógica de Complexidade|
-|Restaurant Orders|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Restaurant-Orders|Python, Estrutura de Dados|
+|Restaurant Orders|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Restaurant-Orders|Python, Estrutura de Dados I (Hash, Objetos, Arrays e Conjuntos)|
+|TING - Trybe Is Not Google|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-TING|Python, Estrutura de Dados II (Filas, Pilhas, Decks, Nós e Listas Encadeadas)|
