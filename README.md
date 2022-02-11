@@ -39,3 +39,5 @@ Seja bem vindo(a), este repositório contém todos os projetos desenvolvidos enq
 |Webchat|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Webchat|NodeJS, ORM e WebSocket|
 |Delivery App|Backend|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Delivery-App|NodeJS, ORM, JWT, React, Context API|
 |Job Insights|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Job-Insights|Python|
+|Inventory Report|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Inventory-Report|Python, POO|
+|Tech News|Ciência da Computação|https://github.com/MatheusSchreiner/Trybe-Projetos/tree/Project-Tech-News| Python, Raspagem de Dados|
