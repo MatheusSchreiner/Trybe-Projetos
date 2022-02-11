@@ -1,27 +1,28 @@
 import csv
 import json
-import xml.etree.ElementTree as xml
-from reports.simple_report import SimpleReport
-from reports.complete_report import CompleteReport
+import xml.etree.ElementTree as ET
+
+from inventory_report.reports.simple_report import SimpleReport
+from inventory_report.reports.complete_report import CompleteReport
 
 
-class Inventory():
+class Inventory:
     @staticmethod
     def read(path):
         with open(path, mode="r") as file:
             if path.endswith(".csv"):
                 return list(csv.DictReader(file))
-            elif path.endswith(".json"):
+            if path.endswith(".json"):
                 return json.load(file)
-            elif path.endswith(".xml"):
-                tree = xml.parse(file)
+            if path.endswith(".xml"):
+                tree = ET.parse(file)
                 root = tree.getroot()
                 return [{el.tag: el.text for el in branch} for branch in root]
 
     @classmethod
-    def import_data(cls, path, type):
+    def import_data(cls, path, report):
         list = cls.read(path)
-        if type == "simples":
+        if report == "simples":
             return SimpleReport.generate(list)
-        if type == "completo":
+        if report == "completo":
             return CompleteReport.generate(list)

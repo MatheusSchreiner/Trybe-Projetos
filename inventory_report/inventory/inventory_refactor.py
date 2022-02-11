@@ -13,9 +13,9 @@ class InventoryRefactor(Iterable):
     def __iter__(self):
         return InventoryIterator(self.data)
 
-    def import_data(self, path, type):
+    def import_data(self, path, report):
         self.data += self.importer.import_data(path)
 
-        if type == "simples":
+        if report == "simples":
             return SimpleReport.generate(self.data)
         return CompleteReport.generate(self.data)

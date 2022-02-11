@@ -1,20 +1,22 @@
-from .simple_report import SimpleReport
 from collections import Counter
+
+from inventory_report.reports.simple_report import SimpleReport
 
 
 class CompleteReport(SimpleReport):
     @classmethod
     def generate(cls, list):
-        simple = SimpleReport.generate(list)
+        simple_report = super().generate(list)
 
-        count_comp = Counter([item["nome_da_empresa"] for item in list])
+        companies_counter = Counter(item["nome_da_empresa"] for item in list)
 
-        result = ""
-        for key, value in count_comp.items():
-            result += f"- {key}: {value}"
+        report = "".join(
+            f"- {company}: {companies_counter[company]}\n"
+            for company in companies_counter
+          )
 
-        return(
-            f"{simple}\n"
-            "Produtos estocados por empresa:"
-            f"{result}"
+        return (
+            f"{simple_report}\n"
+            "Produtos estocados por empresa: \n"
+            f"{report}"
         )
